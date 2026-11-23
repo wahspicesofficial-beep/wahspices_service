@@ -1,0 +1,1686 @@
+{
+ "regions": [
+  {
+   "name": "Gujarat",
+   "slug": "gujarat",
+   "mapStateId": "gj",
+   "tagline": "Home of jeera, saunf & isabgol",
+   "cardText": "WAH's home state. North Gujarat's seed-spice belt grows cumin, fennel and isabgol, and Gujarati kitchens turn them into dhana-jiru, chaas masala and undhiyu.",
+   "landmark": "Rani ki Vav, Patan",
+   "featuredMasala": "Undhiyu Masala",
+   "accentColor": "#b45309",
+   "heroImageUrl": "/images/regions/gujarat/hero.jpg",
+   "heroImageCredit": "Photo: xiquinhosilva · CC BY 2.0 (Wikimedia Commons)",
+   "cardImageUrl": "/images/regions/gujarat/hero-sm.jpg",
+   "signatureMasalas": [
+    {
+     "name": "Dhana-jiru",
+     "note": "Roasted coriander and cumin, ground together — the everyday Gujarati blend."
+    },
+    {
+     "name": "Undhiyu masala",
+     "note": "A green, nutty masala for the famous winter vegetable pot."
+    },
+    {
+     "name": "Chaas masala",
+     "note": "Roasted cumin, black salt and mint for spiced buttermilk."
+    },
+    {
+     "name": "Methia masala",
+     "note": "Split fenugreek and mustard with chilli for mango pickles."
+    }
+   ],
+   "produces": [
+    {
+     "name": "Cumin (jeera)",
+     "icon": "🌱",
+     "note": "A cool-season seed spice of north Gujarat and Saurashtra, sown after the monsoon and harvested in late winter."
+    },
+    {
+     "name": "Fennel (saunf)",
+     "icon": "🌿",
+     "note": "Tall, feathery plants whose seed heads are cut and dried to keep their green colour and sweet aroma."
+    },
+    {
+     "name": "Isabgol (psyllium)",
+     "icon": "🌾",
+     "note": "Gujarat and Rajasthan grow most of India's psyllium, prized for its husk."
+    },
+    {
+     "name": "Coriander & ajwain",
+     "icon": "🟤",
+     "note": "Other winter seed spices that share the same dry, sunny fields."
+    },
+    {
+     "name": "Groundnut & sesame",
+     "icon": "🥜",
+     "note": "Saurashtra's oilseeds — the base of Gujarati cooking oils and chutneys."
+    }
+   ],
+   "dishes": [
+    {
+     "name": "Undhiyu",
+     "note": "Winter vegetables and methi muthiya slow-cooked with green masala."
+    },
+    {
+     "name": "Dhokla & khandvi",
+     "note": "Steamed and rolled gram-flour snacks with a mustard-seed tempering."
+    },
+    {
+     "name": "Thepla",
+     "note": "Spiced fenugreek flatbread, the traveller's favourite."
+    },
+    {
+     "name": "Gujarati kadhi",
+     "note": "Sweet-sour yoghurt curry tempered with cumin, cloves and curry leaves."
+    },
+    {
+     "name": "Dal-bhaat-shaak-rotli",
+     "note": "The everyday thali that balances sweet, sour and spice."
+    }
+   ],
+   "productSlugs": [
+    "undhyu-masala",
+    "chaas-masala",
+    "jeera",
+    "jeera-powder",
+    "saunf",
+    "dhania",
+    "dhaniya-powder",
+    "ajwain",
+    "methi",
+    "rai",
+    "safed-til",
+    "kala-namak-powder"
+   ],
+   "autoLinkProducts": true,
+   "sections": [
+    {
+     "heading": "Where the WAH! story begins",
+     "body": "WAH! Spices was born in Surat, and Gujarat is where our idea of a good masala comes from. A Gujarati kitchen is a lesson in balance: a little sweetness from jaggery, a little sourness from kokum, lemon or tamarind, and spices used to lift the food rather than bury it.\n\nThat balance depends on spices that are fresh and honestly made. Many of the seed spices we use every day — jeera, saunf, dhania, ajwain, methi — grow in Gujarat and its neighbouring states, so the story of our masalas really starts in these fields.",
+     "imageUrl": "/images/regions/gujarat/thali.jpg",
+     "imageAlt": "A Gujarati thali with many small bowls",
+     "imageCaption": "A Gujarati thali: dal, kadhi, shaak, rotli and rice, with something sweet, sour and spicy on every plate.",
+     "imageCredit": "Photo: Dvivektx · CC BY 4.0 (Wikimedia Commons)"
+    },
+    {
+     "heading": "Unjha and the seed-spice belt",
+     "body": "North Gujarat — the districts around Mehsana, Patan and Banaskantha — is one of India's great seed-spice belts. The town of Unjha has one of the country's busiest spice market yards, where farmers bring cumin, fennel, isabgol and other seeds after the harvest.\n\nCumin is sown after the monsoon, once the heat breaks, and is harvested in late winter. It likes dry, cool weather; a humid spell can bring disease, so every season is a gamble on the sky. After harvest the plants are dried and threshed, and the seeds are cleaned and graded before they reach a spice kitchen.\n\nGujarat and neighbouring Rajasthan together grow most of India's cumin, which is why jeera turns up in nearly every Gujarati dish — in the tempering, in buttermilk, and roasted and ground into dhana-jiru.",
+     "imageUrl": "/images/hero/cumin.jpg",
+     "imageAlt": "Cumin seeds",
+     "imageCaption": "Cumin is a cool-season crop: it needs dry, sunny winters to ripen well.",
+     "imageCredit": "Photo: Tanvir Anjum Adib · CC BY-SA 4.0 (Wikimedia Commons)"
+    },
+    {
+     "heading": "Saunf and isabgol",
+     "body": "Fennel grows tall and feathery, with umbrella-shaped seed heads. For the best saunf, the heads are cut when the seeds are fully formed but still green, then dried away from harsh sun so they keep their colour and their sweet, anise-like aroma. Gujarat is one of the leading fennel-growing states in India.\n\nAfter a Gujarati meal you will almost always be offered mukhwas — fennel seeds, sometimes roasted with sesame or coated in sugar — to freshen the mouth and help digestion.\n\nIsabgol, or psyllium, is another winter crop of the region. Its seeds are milled to separate the husk, which is used as a natural fibre. India is the world's main producer of psyllium, and most of it is grown in Gujarat and Rajasthan.",
+     "imageUrl": "/images/regions/gujarat/fennel.jpg",
+     "imageAlt": "Fennel seeds",
+     "imageCaption": "Fennel seed heads are cut and dried in the shade so the seeds stay green and sweet.",
+     "imageCredit": "Photo: Holly Cheng · CC BY-SA 3.0 (Wikimedia Commons)"
+    },
+    {
+     "heading": "Dhana-jiru and the art of the vaghar",
+     "body": "If one blend defines Gujarati home cooking, it is dhana-jiru: coriander and cumin seeds, lightly roasted and ground together. It goes into dals, shaak (vegetable dishes), kadhi and farsan, usually alongside turmeric (haldar) and red chilli (marchu).\n\nMost dishes begin or end with a vaghar — a tempering of mustard seeds, cumin, a pinch of asafoetida, dried red chillies and curry leaves sizzled in hot oil or ghee and poured over the food. The order matters: mustard seeds first until they pop, then cumin, then the rest for just a few seconds so nothing burns.",
+     "imageUrl": null,
+     "imageAlt": null,
+     "imageCaption": null,
+     "imageCredit": null
+    },
+    {
+     "heading": "Undhiyu: winter in a pot",
+     "body": "Undhiyu takes its name from 'undhu', meaning upside down: traditionally the pot was sealed and buried upside down in a pit of embers, so the vegetables cooked slowly in their own steam.\n\nThe Surti version uses winter vegetables — surti papdi beans, purple yam, sweet potato, raw banana and baby brinjals — together with methi muthiya, small fried dumplings of fenugreek leaves and gram flour. Everything is coated in a green masala of fresh coriander, coconut, green garlic, green chilli and ginger, with ajwain, sesame and a balanced blend of dry spices.\n\nIt is the dish of Uttarayan, the kite festival in January, when families spend the day on the rooftops and undhiyu with puri and jalebi waits downstairs.",
+     "imageUrl": "/images/regions/gujarat/undhiyu.jpg",
+     "imageAlt": "A dish of undhiyu",
+     "imageCaption": "Undhiyu is a winter speciality, eaten especially around Uttarayan (Makar Sankranti).",
+     "imageCredit": "Photo: Jatan1992 · CC BY-SA 4.0 (Wikimedia Commons)"
+    },
+    {
+     "heading": "Chaas, pickles and methia masala",
+     "body": "Summer in Gujarat means chaas: thin buttermilk churned with water and seasoned with roasted cumin, black salt, fresh coriander or mint and sometimes a little ginger. It is drunk with lunch almost everywhere.\n\nSummer is also pickle season. Raw mangoes are cut and mixed with methia masala — split fenugreek seeds, split mustard seeds, red chilli, turmeric, asafoetida and salt — then layered with oil and left to mature. Each family has its own proportions, and the jars last the whole year.",
+     "imageUrl": null,
+     "imageAlt": null,
+     "imageCaption": null,
+     "imageCredit": null
+    }
+   ],
+   "seoTitle": "Gujarat's Spices: Jeera, Saunf & Undhiyu | WAH! Spices",
+   "seoDescription": "How Gujarat grows cumin, fennel and isabgol, and the masalas behind dhana-jiru, chaas and undhiyu. The story of WAH! Spices' home state.",
+   "isPublished": true,
+   "showOnHome": true
+  },
+  {
+   "name": "Rajasthan",
+   "slug": "rajasthan",
+   "mapStateId": "rj",
+   "tagline": "The royal taste of the desert",
+   "cardText": "Jodhpur's red chillies, Nagaur's kasuri methi and the coriander of Kota — Rajasthan cooks big, royal flavour with very little water.",
+   "landmark": "Hawa Mahal",
+   "featuredMasala": "Kitchen King Masala",
+   "accentColor": "#e65100",
+   "heroImageUrl": "/images/regions/rajasthan/hero.jpg",
+   "heroImageCredit": "Photo: Chainwit · CC BY-SA 4.0 (Wikimedia Commons)",
+   "cardImageUrl": "/images/regions/rajasthan/hero-sm.jpg",
+   "signatureMasalas": [
+    {
+     "name": "Kitchen King masala",
+     "note": "Our all-rounder for rich, royal gravies and paneer dishes."
+    },
+    {
+     "name": "Laal maas masala",
+     "note": "Red-chilli-forward, with coriander, cumin and whole garam spices."
+    },
+    {
+     "name": "Kasuri methi",
+     "note": "Crushed dried fenugreek leaves for aroma at the end of cooking."
+    },
+    {
+     "name": "Panchmel dal tadka",
+     "note": "Cumin, asafoetida and red chilli tempering for the five-lentil dal."
+    }
+   ],
+   "produces": [
+    {
+     "name": "Cumin (jeera)",
+     "icon": "🌱",
+     "note": "Grown in the western districts through the cool, dry winter."
+    },
+    {
+     "name": "Coriander seed",
+     "icon": "🟤",
+     "note": "The Hadoti region around Kota is known for coriander, traded at Ramganj Mandi."
+    },
+    {
+     "name": "Red chilli",
+     "icon": "🌶️",
+     "note": "Mathania, near Jodhpur, is famous for a deep red, aromatic chilli."
+    },
+    {
+     "name": "Fenugreek (methi)",
+     "icon": "🍃",
+     "note": "Nagaur's dried fenugreek leaves are sold across India as kasuri methi."
+    },
+    {
+     "name": "Mustard",
+     "icon": "🌼",
+     "note": "Rajasthan is India's largest grower of rapeseed-mustard."
+    },
+    {
+     "name": "Ker & sangri",
+     "icon": "🌵",
+     "note": "Wild desert berries and beans, dried and cooked with spices."
+    }
+   ],
+   "dishes": [
+    {
+     "name": "Dal baati churma",
+     "note": "Baked wheat dumplings with five-lentil dal and sweet churma."
+    },
+    {
+     "name": "Laal maas",
+     "note": "Mutton cooked fiery red with chillies, yoghurt and ghee."
+    },
+    {
+     "name": "Gatte ki sabzi",
+     "note": "Gram-flour dumplings in a spiced yoghurt gravy."
+    },
+    {
+     "name": "Ker sangri",
+     "note": "Desert berries and beans cooked with chilli and amchur."
+    },
+    {
+     "name": "Pyaaz kachori",
+     "note": "Jodhpur's flaky kachori filled with spiced onions."
+    }
+   ],
+   "productSlugs": [
+    "kitchen-king-masala",
+    "lal-mirch-powder",
+    "sabut-lal-mirch",
+    "sukhi-methi-patta",
+    "jeera",
+    "dhania",
+    "dhaniya-powder",
+    "methi",
+    "dal-tadka-masala",
+    "mutton-masala",
+    "rai"
+   ],
+   "autoLinkProducts": true,
+   "sections": [
+    {
+     "heading": "Cooking for the desert",
+     "body": "In the Thar desert, water is precious and fresh vegetables are scarce for much of the year. Rajasthani cooks answered with ingredients that keep: dried beans and berries, gram flour, millet, ghee, yoghurt and buttermilk — and plenty of spices, which add flavour and help food last.\n\nThe royal kitchens of the Rajput courts added their own grandeur: game cooked over fire, rich gravies and elaborate sweets. Today that heritage lives on in the dhabas and homes of Jodhpur, Jaipur, Bikaner and Udaipur.",
+     "imageUrl": null,
+     "imageAlt": null,
+     "imageCaption": null,
+     "imageCredit": null
+    },
+    {
+     "heading": "Cumin and coriander country",
+     "body": "Rajasthan is one of India's biggest seed-spice states. Cumin grows across the western districts around Jodhpur, Barmer, Jalore and Nagaur, where the dry winters suit it well. Together with Gujarat, the state grows most of the country's jeera.\n\nIn the south-east, the Hadoti region around Kota, Baran and Jhalawar is known for coriander. Ramganj Mandi, near Kota, is one of the largest coriander markets in India. The seeds are dried on the plant, threshed and cleaned; roasting them just before grinding releases their warm, citrusy aroma.",
+     "imageUrl": "/images/regions/rajasthan/coriander.jpg",
+     "imageAlt": "Coriander seeds",
+     "imageCaption": "Coriander is grown for its seed in the Hadoti region of south-east Rajasthan.",
+     "imageCredit": "Photo: Sanjay Acharya · CC BY-SA 4.0 (Wikimedia Commons)"
+    },
+    {
+     "heading": "Mathania chilli and laal maas",
+     "body": "Mathania, a village near Jodhpur, gave its name to a long, deep-red chilli known for colour and aroma as much as for heat. Chillies like these are the soul of laal maas — 'red meat' — the most famous dish of Rajasthani royal cooking.\n\nFor laal maas, mutton is cooked slowly with a generous amount of red chilli, garlic, yoghurt, coriander and whole spices in ghee. Some cooks finish it with dhungar: a hot piece of charcoal placed in a small bowl inside the pot, drizzled with ghee and covered for a few minutes so the curry takes on a gentle smoky aroma.",
+     "imageUrl": "/images/regions/rajasthan/laal-maas.jpg",
+     "imageAlt": "Dried red chillies",
+     "imageCaption": "Laal maas gets its colour from plenty of red chillies cooked slowly in ghee.",
+     "imageCredit": "Photo: Richard Mortel · CC BY 2.0 (Wikimedia Commons)"
+    },
+    {
+     "heading": "Kasuri methi from Nagaur",
+     "body": "Kasuri methi — dried fenugreek leaves — is named after Kasur, a town now in Pakistan, but in India it is Nagaur in Rajasthan that is famous for it. Nagaur's fenugreek is grown in winter, and the leaves are dried to keep their colour and strong, slightly bitter, maple-like aroma.\n\nCrush a pinch between your palms and add it at the end of cooking: it transforms butter masala, dal, paneer gravies and parathas. A little goes a long way.",
+     "imageUrl": "/images/regions/rajasthan/methi.jpg",
+     "imageAlt": "Fenugreek leaves",
+     "imageCaption": "Fresh fenugreek leaves are dried to make kasuri methi.",
+     "imageCredit": "Photo: Malyadri · CC BY-SA 3.0 (Wikimedia Commons)"
+    },
+    {
+     "heading": "Dal baati churma and ker sangri",
+     "body": "Baati are hard dumplings of wheat flour and ghee, traditionally baked in the embers of a fire, then cracked open and soaked in ghee. They are served with panchmel dal, made from five lentils and tempered with cumin, asafoetida and red chilli, and with churma — crushed baati sweetened with jaggery or sugar.\n\nKer sangri is pure desert cooking: ker, a small wild berry, and sangri, the beans of the khejri tree, are dried after harvest and later cooked with red chilli, cumin, amchur and oil. It keeps for months and tastes of the land.",
+     "imageUrl": "/images/regions/rajasthan/dal-baati.jpg",
+     "imageAlt": "Dal baati churma",
+     "imageCaption": "Dal baati churma — baked baati, five-lentil dal and sweet churma.",
+     "imageCredit": "Photo: Mahi Tatavarty · CC BY-SA 4.0 (Wikimedia Commons)"
+    }
+   ],
+   "seoTitle": "Rajasthan's Spices: Laal Maas, Kasuri Methi & More | WAH!",
+   "seoDescription": "Cumin, coriander, Mathania chilli and Nagaur's kasuri methi: how the desert state of Rajasthan grows its spices and cooks dal baati and laal maas.",
+   "isPublished": true,
+   "showOnHome": true
+  },
+  {
+   "name": "Punjab",
+   "slug": "punjab",
+   "mapStateId": "pb",
+   "tagline": "Land of five rivers",
+   "cardText": "Punjab's fields feed India, and its kitchens gave the world chole, dal makhani and tandoori cooking — bold, buttery and generous.",
+   "landmark": "Golden Temple",
+   "featuredMasala": "Chole Masala",
+   "accentColor": "#1565c0",
+   "heroImageUrl": "/images/regions/punjab/hero.jpg",
+   "heroImageCredit": "Photo: Shagil Kannur · CC BY-SA 4.0 (Wikimedia Commons)",
+   "cardImageUrl": "/images/regions/punjab/hero-sm.jpg",
+   "signatureMasalas": [
+    {
+     "name": "Chole masala",
+     "note": "Dark and tangy, with anardana, amchur and roasted spices."
+    },
+    {
+     "name": "Tandoori masala",
+     "note": "Red chilli, ginger-garlic and warm spices for yoghurt marinades."
+    },
+    {
+     "name": "Dal makhani masala",
+     "note": "Gentle warmth for slow-cooked black lentils with butter."
+    },
+    {
+     "name": "Rajma masala",
+     "note": "For the Sunday favourite, rajma-chawal."
+    }
+   ],
+   "produces": [
+    {
+     "name": "Wheat",
+     "icon": "🌾",
+     "note": "The winter crop that fills India's granaries and Punjab's rotis."
+    },
+    {
+     "name": "Rice & basmati",
+     "icon": "🍚",
+     "note": "Grown through the monsoon season on the irrigated plains."
+    },
+    {
+     "name": "Mustard (sarson)",
+     "icon": "🌼",
+     "note": "Winter fields of yellow flowers; the greens become sarson da saag."
+    },
+    {
+     "name": "Maize (makki)",
+     "icon": "🌽",
+     "note": "Ground into flour for makki di roti."
+    },
+    {
+     "name": "Milk, ghee & paneer",
+     "icon": "🥛",
+     "note": "Dairy is at the heart of Punjabi cooking — lassi, makhan and paneer."
+    }
+   ],
+   "dishes": [
+    {
+     "name": "Chole bhature",
+     "note": "Spiced chickpeas with puffed, fried bread."
+    },
+    {
+     "name": "Sarson da saag & makki di roti",
+     "note": "Mustard greens with maize-flour bread and white butter."
+    },
+    {
+     "name": "Dal makhani",
+     "note": "Whole black urad and rajma simmered for hours with butter."
+    },
+    {
+     "name": "Amritsari kulcha",
+     "note": "Stuffed, tandoor-baked bread from Amritsar."
+    },
+    {
+     "name": "Lassi",
+     "note": "Thick churned yoghurt, sweet or salted."
+    }
+   ],
+   "productSlugs": [
+    "chole-masala",
+    "chana-masala",
+    "tandoori-masala",
+    "dal-makhani-masala",
+    "rajma-masala",
+    "butter-masala",
+    "tikka-masala",
+    "paneer-masala",
+    "dry-anardana",
+    "garam-masala",
+    "sukhi-methi-patta",
+    "badi-elaichi"
+   ],
+   "autoLinkProducts": true,
+   "sections": [
+    {
+     "heading": "The granary of India",
+     "body": "Punjab means 'land of five waters', after the rivers that cross the region. Its irrigated plains are among the most productive farmland in India: wheat grows through the winter and rice through the monsoon, and in late winter the mustard fields bloom bright yellow.\n\nPunjabi food reflects that abundance. Meals are hearty and generous, built on wheat rotis and parathas, lentils and beans, fresh dairy — lassi, white butter, paneer and ghee — and the greens of the season.",
+     "imageUrl": "/images/regions/punjab/mustard-field.jpg",
+     "imageAlt": "A flowering mustard field",
+     "imageCaption": "In late winter, mustard fields bloom yellow across the Punjab plains.",
+     "imageCredit": "Photo: UnpetitproleX · CC BY-SA 4.0 (Wikimedia Commons)"
+    },
+    {
+     "heading": "Chole: the art of the dark masala",
+     "body": "Good Punjabi chole are dark, tangy and deeply spiced. The chickpeas are often boiled with a few tea leaves or dried amla in a muslin bag, which gives them their deep brown colour.\n\nThe flavour comes from the masala: roasted coriander and cumin, black cardamom, black pepper, cloves and cinnamon, with dried pomegranate seeds (anardana) and dried mango powder (amchur) for sourness. In the Amritsari and Pindi styles the spices are fried in ghee and poured over the chickpeas, then everything is simmered until thick.\n\nServe with bhature, kulcha or simply with sliced onions, green chillies and lemon.",
+     "imageUrl": "/images/regions/punjab/chole.jpg",
+     "imageAlt": "Chole bhature",
+     "imageCaption": "Chole bhature, a Punjabi breakfast and street-food favourite.",
+     "imageCredit": "Photo: Gannu03 · CC BY-SA 4.0 (Wikimedia Commons)"
+    },
+    {
+     "heading": "The tandoor",
+     "body": "The tandoor is a clay oven heated with charcoal or wood until its walls are blisteringly hot. Breads are slapped onto the inner wall and bake in a minute or two; meat and paneer on skewers cook in its intense, smoky heat.\n\nVillages once shared a common tandoor where families brought their dough to be baked. After 1947, Punjabi cooks who moved to Delhi brought tandoori cooking to restaurants, and dishes like tandoori chicken became famous across India and the world.\n\nA tandoori marinade combines thick yoghurt, ginger-garlic paste, mild red chilli for colour, roasted cumin and coriander, garam masala, kasuri methi and lemon juice or mustard oil.",
+     "imageUrl": "/images/regions/punjab/tandoor.jpg",
+     "imageAlt": "Bread baking in a tandoor",
+     "imageCaption": "Rotis and naan are slapped onto the hot inner wall of the clay tandoor.",
+     "imageCredit": "Photo: Ravi Dwivedi · CC BY-SA 4.0 (Wikimedia Commons)"
+    },
+    {
+     "heading": "Dal makhani and rajma",
+     "body": "Dal makhani is slow food: whole black urad dal and a little rajma, soaked overnight and simmered for hours until creamy, then finished with butter and cream. The masala is gentle — ginger, garlic, tomato, a little red chilli and garam masala — so the lentils can shine.\n\nRajma-chawal — red kidney beans in an onion-tomato gravy, served with steamed rice — is the comfort food of countless Punjabi homes, especially for Sunday lunch.",
+     "imageUrl": null,
+     "imageAlt": null,
+     "imageCaption": null,
+     "imageCredit": null
+    },
+    {
+     "heading": "Langar: food for everyone",
+     "body": "The Sikh tradition of langar — a free community kitchen open to everyone — goes back to Guru Nanak. Visitors of every faith and background sit together on the floor and are served the same simple vegetarian meal: dal, roti, a vegetable and often kheer.\n\nThe langar at the Golden Temple in Amritsar is one of the largest in the world. It is cooked and served by volunteers as sewa (selfless service), and it is a moving reminder that food is, above all, something to share.",
+     "imageUrl": "/images/regions/punjab/langar.jpg",
+     "imageAlt": "Cooking cauldrons in the Golden Temple langar kitchen",
+     "imageCaption": "The langar kitchen at the Golden Temple, where volunteers cook in giant cauldrons.",
+     "imageCredit": "Photo: Kritzolina · CC BY-SA 4.0 (Wikimedia Commons)"
+    }
+   ],
+   "seoTitle": "Punjab's Flavours: Chole, Tandoori & Dal Makhani | WAH!",
+   "seoDescription": "From mustard fields to the tandoor: the story of Punjabi cooking, chole masala, tandoori masala and dal makhani, and the tradition of langar.",
+   "isPublished": true,
+   "showOnHome": true
+  },
+  {
+   "name": "Uttar Pradesh",
+   "slug": "uttar-pradesh",
+   "mapStateId": "up",
+   "tagline": "Land of Nawabs",
+   "cardText": "The courts of Lucknow perfected slow dum cooking and melt-in-the-mouth kebabs, perfumed with rose, kewra and warm garam masala.",
+   "landmark": "Taj Mahal",
+   "featuredMasala": "Garam Masala",
+   "accentColor": "#b55a1a",
+   "heroImageUrl": "/images/regions/uttar-pradesh/hero.jpg",
+   "heroImageCredit": "Photo: Yann; edited by Jim Carter · CC BY-SA 4.0 (Wikimedia Commons)",
+   "cardImageUrl": "/images/regions/uttar-pradesh/hero-sm.jpg",
+   "signatureMasalas": [
+    {
+     "name": "Awadhi garam masala",
+     "note": "Fragrant rather than fiery: cardamom, mace, nutmeg, cloves and cinnamon."
+    },
+    {
+     "name": "Korma masala",
+     "note": "For rich, mild gravies with yoghurt, nuts and fried onions."
+    },
+    {
+     "name": "Biryani masala",
+     "note": "For layered Lucknowi biryani cooked on dum."
+    },
+    {
+     "name": "Kebab spices",
+     "note": "Mace, cardamom and kebab chini for soft, aromatic kebabs."
+    }
+   ],
+   "produces": [
+    {
+     "name": "Mint",
+     "icon": "🌿",
+     "note": "Uttar Pradesh grows much of the mint used for India's menthol oil."
+    },
+    {
+     "name": "Mango",
+     "icon": "🥭",
+     "note": "Malihabad, near Lucknow, is famous for its Dasheri mangoes."
+    },
+    {
+     "name": "Sugarcane & jaggery",
+     "icon": "🎋",
+     "note": "India's largest sugarcane-growing state."
+    },
+    {
+     "name": "Wheat",
+     "icon": "🌾",
+     "note": "The staple grain of the Gangetic plains."
+    },
+    {
+     "name": "Rose",
+     "icon": "🌹",
+     "note": "Kannauj distils rose and other flowers into attar and rose water."
+    }
+   ],
+   "dishes": [
+    {
+     "name": "Lucknowi biryani",
+     "note": "Delicate, fragrant rice and meat cooked on dum."
+    },
+    {
+     "name": "Galouti kebab",
+     "note": "Melt-in-the-mouth minced-meat kebabs."
+    },
+    {
+     "name": "Nihari",
+     "note": "Slow-cooked meat stew, traditionally eaten in the morning."
+    },
+    {
+     "name": "Korma",
+     "note": "Meat or vegetables in a rich, mild, aromatic gravy."
+    },
+    {
+     "name": "Kachori-sabzi",
+     "note": "Banaras's favourite breakfast."
+    }
+   ],
+   "productSlugs": [
+    "garam-masala",
+    "korma-masala",
+    "biryani-masala",
+    "shahi-paneer-masala",
+    "malai-kofta-masala",
+    "dry-rose",
+    "javitri",
+    "jaiphal",
+    "elaichi",
+    "kabab-chini",
+    "meat-masala"
+   ],
+   "autoLinkProducts": true,
+   "sections": [
+    {
+     "heading": "Awadh and the art of dum",
+     "body": "In the 18th and 19th centuries Lucknow was the capital of the Nawabs of Awadh, and its royal kitchens developed one of India's most refined cuisines. Awadhi cooking is about subtlety: fragrance over fire, and patience over speed.\n\nIts signature technique is dum — food sealed in a pot, often with a rim of dough, and cooked very slowly over gentle heat so the meat, rice and spices steam in their own juices. A popular story links dum cooking to the building of Lucknow's Bara Imambara, when large pots of food were kept sealed and warm to feed the workers day and night.",
+     "imageUrl": "/images/regions/uttar-pradesh/lucknow.jpg",
+     "imageAlt": "The Bara Imambara, Lucknow",
+     "imageCaption": "The Bara Imambara in Lucknow, built under the Nawabs of Awadh.",
+     "imageCredit": "Photo: Harsh13596 · CC BY-SA 4.0 (Wikimedia Commons)"
+    },
+    {
+     "heading": "Kebabs that melt",
+     "body": "Lucknow is famous for its kebabs. The galouti kebab is made from very finely minced meat mixed with a paste of spices and tenderising ingredients, shaped into small patties and cooked gently on a griddle until it almost melts on the tongue. Legend says it was created for a Nawab who could no longer chew.\n\nThe spicing is warm and aromatic rather than hot: green cardamom, mace, nutmeg, cloves, cinnamon, kebab chini, and sometimes a touch of rose or kewra water. Kakori and seekh kebabs follow the same philosophy.",
+     "imageUrl": "/images/regions/uttar-pradesh/kebab.jpg",
+     "imageAlt": "Galouti kebabs cooking on a tawa",
+     "imageCaption": "Galouti kebabs are cooked gently on a wide griddle.",
+     "imageCredit": "Photo: Cakeoverlord · CC BY-SA 4.0 (Wikimedia Commons)"
+    },
+    {
+     "heading": "Rose, kewra and attar",
+     "body": "Kannauj, in central Uttar Pradesh, is often called the perfume capital of India. For centuries its distillers have made attar using the traditional deg-bhapka method, distilling roses, kewra and other flowers in copper stills and capturing the fragrance in oil.\n\nThat love of fragrance runs through Awadhi food. A few drops of rose or kewra water perfume a biryani or a dessert, and dried rose petals appear in some garam masala and potli (spice bag) blends used to flavour yakhni, the meat stock behind many Awadhi dishes.",
+     "imageUrl": "/images/regions/uttar-pradesh/rose.jpg",
+     "imageAlt": "Rose petals",
+     "imageCaption": "Dried rose petals and rose water perfume Awadhi biryanis and desserts.",
+     "imageCredit": "Photo: Marc Smith · CC BY-SA 2.0 (Wikimedia Commons)"
+    },
+    {
+     "heading": "Mint and mango country",
+     "body": "Away from the royal kitchens, Uttar Pradesh is a vast agricultural state on the fertile Gangetic plains. It grows more sugarcane than any other state, plenty of wheat and potatoes, and much of the mint that is distilled into menthol oil — a crop that has made India the world's leading mint-oil producer.\n\nIn early summer, the orchards of Malihabad near Lucknow are heavy with Dasheri mangoes. Mint and mango come together in the season's chutneys and coolers, like aam panna.",
+     "imageUrl": "/images/regions/uttar-pradesh/mint.jpg",
+     "imageAlt": "Mint plants",
+     "imageCaption": "Mint is grown widely across Uttar Pradesh.",
+     "imageCredit": "Photo: Commonists · CC BY-SA 4.0 (Wikimedia Commons)"
+    },
+    {
+     "heading": "From Banaras to Agra: street flavours",
+     "body": "Uttar Pradesh's street food is as famous as its royal cuisine. In Banaras, breakfast is kachori-sabzi — crisp kachoris with a spicy potato curry — followed by jalebi. Lucknow has its basket chaat and tikki; Mathura is known for its peda, and Agra for petha, a translucent sweet made from ash gourd.\n\nWhat connects them is a confident use of chaat masala, roasted cumin, black salt and tangy amchur — the flavours of North Indian street food.",
+     "imageUrl": null,
+     "imageAlt": null,
+     "imageCaption": null,
+     "imageCredit": null
+    }
+   ],
+   "seoTitle": "Uttar Pradesh: Awadhi Dum, Kebabs & Garam Masala | WAH!",
+   "seoDescription": "Awadhi dum cooking, Lucknow's kebabs, Kannauj rose and the mint fields of Uttar Pradesh: the story behind garam masala and korma masala.",
+   "isPublished": true,
+   "showOnHome": true
+  },
+  {
+   "name": "Telangana",
+   "slug": "telangana",
+   "mapStateId": "tg",
+   "tagline": "Hyderabad — City of Biryani",
+   "cardText": "Hyderabad's Deccan kitchens blend Mughal and Telugu cooking — dum biryani, haleem and mirchi ka salan — with turmeric and chillies from Telangana's fields.",
+   "landmark": "Charminar",
+   "featuredMasala": "Biryani Masala",
+   "accentColor": "#7b1fa2",
+   "heroImageUrl": "/images/regions/telangana/hero.jpg",
+   "heroImageCredit": "Photo: DidierTais · CC BY-SA 3.0 (Wikimedia Commons)",
+   "cardImageUrl": "/images/regions/telangana/hero-sm.jpg",
+   "signatureMasalas": [
+    {
+     "name": "Biryani masala",
+     "note": "Whole spices for layered dum biryani: cardamom, cloves, cinnamon, mace and more."
+    },
+    {
+     "name": "Salan masala",
+     "note": "Roasted peanut, sesame and coconut with tamarind tang."
+    },
+    {
+     "name": "Hyderabadi garam masala",
+     "note": "Warm, fragrant and balanced for meat curries."
+    },
+    {
+     "name": "Haleem spices",
+     "note": "Gentle warming spices for slow-cooked wheat, lentils and meat."
+    }
+   ],
+   "produces": [
+    {
+     "name": "Turmeric",
+     "icon": "🟡",
+     "note": "Nizamabad is a well-known turmeric growing and trading centre."
+    },
+    {
+     "name": "Red chilli",
+     "icon": "🌶️",
+     "note": "Warangal and Khammam are known for their chilli crops."
+    },
+    {
+     "name": "Rice",
+     "icon": "🍚",
+     "note": "Paddy fields fed by tanks and rivers across the state."
+    },
+    {
+     "name": "Groundnut & sesame",
+     "icon": "🥜",
+     "note": "The base of the nutty salan gravies."
+    }
+   ],
+   "dishes": [
+    {
+     "name": "Hyderabadi dum biryani",
+     "note": "Marinated meat and basmati layered and cooked on dum."
+    },
+    {
+     "name": "Haleem",
+     "note": "Wheat, lentils and meat slow-cooked and pounded smooth."
+    },
+    {
+     "name": "Mirchi ka salan",
+     "note": "Green chillies in a peanut-sesame-tamarind gravy."
+    },
+    {
+     "name": "Baghare baingan",
+     "note": "Baby brinjals in a similar nutty, tangy masala."
+    },
+    {
+     "name": "Double ka meetha",
+     "note": "Bread pudding soaked in saffron-cardamom milk."
+    }
+   ],
+   "productSlugs": [
+    "biryani-masala",
+    "pulao-masala",
+    "mutton-masala",
+    "chicken-masala",
+    "kabab-chini",
+    "javitri",
+    "jaiphal",
+    "badi-elaichi",
+    "elaichi",
+    "dagad-phool",
+    "haldi-powder",
+    "lal-mirch-powder",
+    "safed-til"
+   ],
+   "autoLinkProducts": true,
+   "sections": [
+    {
+     "heading": "Where the Deccan meets the Mughals",
+     "body": "Hyderabad was founded by the Qutb Shahi dynasty in the late 16th century — the Charminar dates from that time — and later became the seat of the Asaf Jahi Nizams. Their court kitchens brought together Persian and Mughal techniques with local Telugu ingredients: tamarind, red chilli, sesame, peanuts and coconut.\n\nThe result is Hyderabadi cuisine: rich and royal like Mughlai food, but with a tangy, spicy Deccan edge.",
+     "imageUrl": null,
+     "imageAlt": null,
+     "imageCaption": null,
+     "imageCredit": null
+    },
+    {
+     "heading": "Kacchi dum biryani",
+     "body": "Hyderabad's most famous dish is its kacchi ('raw') dum biryani. Meat is marinated with yoghurt, ginger-garlic, green chillies, fried onions, mint, coriander and spices, then layered raw at the bottom of a heavy pot with partly cooked basmati rice on top.\n\nSaffron milk and ghee are drizzled over, the lid is sealed with dough, and the pot cooks slowly on dum. The meat cooks in its own juices and steams the rice above it with flavour.\n\nThe spices are whole and fragrant: shahi jeera, green and black cardamom, cloves, cinnamon, bay leaf and mace, often with kebab chini and a few dried rose petals.",
+     "imageUrl": "/images/regions/telangana/biryani.jpg",
+     "imageAlt": "Hyderabadi biryani",
+     "imageCaption": "In kacchi dum biryani, raw marinated meat and rice cook together in a sealed pot.",
+     "imageCredit": "Photo: Dheerajk88 · CC BY-SA 4.0 (Wikimedia Commons)"
+    },
+    {
+     "heading": "Haleem in Ramzan",
+     "body": "During Ramzan, Hyderabad's streets fill with haleem stalls. Wheat, lentils and meat are cooked together for hours in large cauldrons and pounded continuously with wooden mallets until the mixture turns smooth and stretchy.\n\nIt is finished with ghee, fried onions, mint, lemon and a sprinkle of garam masala. Hyderabadi haleem carries a Geographical Indication tag, recognising it as a speciality of the city.",
+     "imageUrl": "/images/regions/telangana/haleem.jpg",
+     "imageAlt": "A bowl of haleem",
+     "imageCaption": "Haleem is a Ramzan speciality in Hyderabad.",
+     "imageCredit": "Photo: Mahakeem9680 · CC BY-SA 4.0 (Wikimedia Commons)"
+    },
+    {
+     "heading": "Salan, khatta and the Telugu touch",
+     "body": "Hyderabadi cooks love a sour note. Mirchi ka salan — the classic partner to biryani — is made by simmering green chillies in a gravy of roasted peanuts, sesame seeds and dry coconut, sharpened with tamarind. Baghare baingan uses the same nutty, tangy masala with small brinjals.\n\nThe 'baghaar' — a tempering of mustard seeds, cumin, curry leaves and dried red chillies in hot oil — finishes many of these dishes, a reminder of the Telugu kitchen at the heart of Hyderabadi food.",
+     "imageUrl": null,
+     "imageAlt": null,
+     "imageCaption": null,
+     "imageCredit": null
+    },
+    {
+     "heading": "Turmeric and chillies from Telangana's fields",
+     "body": "Beyond Hyderabad, Telangana is an important spice-growing state. Nizamabad is well known for turmeric: the rhizomes are dug up in winter, boiled, sun-dried for weeks and polished before they go to market and, finally, to the grinder.\n\nWarangal and Khammam are known for red chillies, including plump, mild varieties grown mainly for their bright colour. Together, turmeric and red chilli give Telangana's food its warm colour and gentle heat.",
+     "imageUrl": "/images/regions/telangana/turmeric.jpg",
+     "imageAlt": "Fresh turmeric rhizomes",
+     "imageCaption": "Fresh turmeric rhizomes are boiled, dried and polished before grinding.",
+     "imageCredit": "Photo: Emőke Dénes · CC BY-SA 4.0 (Wikimedia Commons)"
+    }
+   ],
+   "seoTitle": "Hyderabad & Telangana: Dum Biryani & Haleem Spices | WAH!",
+   "seoDescription": "Hyderabadi dum biryani, haleem and mirchi ka salan, and the turmeric and chillies of Telangana: the spice story of the Deccan.",
+   "isPublished": true,
+   "showOnHome": true
+  },
+  {
+   "name": "Andhra Pradesh",
+   "slug": "andhra-pradesh",
+   "mapStateId": "ap",
+   "tagline": "Chilli capital of India",
+   "cardText": "Guntur's chilli yards make Andhra the boldest kitchen in India — fiery pickles, gongura, karam podi and the tang of tamarind.",
+   "landmark": "Guntur chilli yards",
+   "featuredMasala": "Guntur Chilli",
+   "accentColor": "#be123c",
+   "heroImageUrl": "/images/regions/andhra-pradesh/hero.jpg",
+   "heroImageCredit": "Photo: Dr. Chinchu C. · CC BY 4.0 (Wikimedia Commons)",
+   "cardImageUrl": "/images/regions/andhra-pradesh/hero-sm.jpg",
+   "signatureMasalas": [
+    {
+     "name": "Karam podi",
+     "note": "'Gunpowder': roasted lentils, red chilli and garlic for idli and dosa."
+    },
+    {
+     "name": "Avakaya masala",
+     "note": "Mustard powder, red chilli and salt for the famous mango pickle."
+    },
+    {
+     "name": "Andhra chilli powder",
+     "note": "Hot, bright and the base of every curry."
+    },
+    {
+     "name": "Pulihora mix",
+     "note": "Tamarind, mustard, chana dal and curry leaves."
+    }
+   ],
+   "produces": [
+    {
+     "name": "Red chilli",
+     "icon": "🌶️",
+     "note": "Guntur is one of the largest chilli-growing and trading regions in Asia."
+    },
+    {
+     "name": "Turmeric",
+     "icon": "🟡",
+     "note": "Grown in the Krishna-Guntur belt and around Kadapa."
+    },
+    {
+     "name": "Mango",
+     "icon": "🥭",
+     "note": "Banganapalle mangoes, and raw mangoes for avakaya pickle."
+    },
+    {
+     "name": "Rice",
+     "icon": "🍚",
+     "note": "The Godavari and Krishna deltas are rice country."
+    },
+    {
+     "name": "Tamarind",
+     "icon": "🟤",
+     "note": "The sour backbone of Andhra cooking."
+    }
+   ],
+   "dishes": [
+    {
+     "name": "Gongura pachadi",
+     "note": "Tangy sorrel-leaf chutney."
+    },
+    {
+     "name": "Avakaya",
+     "note": "Raw mango pickle with mustard and chilli."
+    },
+    {
+     "name": "Pesarattu",
+     "note": "Green moong dosa, often with ginger chutney."
+    },
+    {
+     "name": "Pulihora",
+     "note": "Tamarind rice, served at festivals and temples."
+    },
+    {
+     "name": "Andhra chicken curry",
+     "note": "Fiery and deeply spiced."
+    }
+   ],
+   "productSlugs": [
+    "lal-mirch-powder",
+    "sabut-lal-mirch",
+    "sukhi-lal-mirch",
+    "chilli-flakes",
+    "chilli-garlic-masala",
+    "haldi-powder",
+    "dry-imli",
+    "rai",
+    "dry-curry-leaves",
+    "methi",
+    "chicken-masala"
+   ],
+   "autoLinkProducts": true,
+   "sections": [
+    {
+     "heading": "Guntur: a sea of red",
+     "body": "Drive through Guntur district in early spring and you will see whole fields turned red: freshly picked chillies spread out on the ground to dry in the sun. Guntur is one of the largest chilli-growing regions in India, and its market yard is among the biggest chilli trading centres in Asia.\n\nChillies are planted after the monsoon and picked in several rounds through winter and spring as the pods ripen to red. Drying them well is essential — properly dried chillies keep their colour and flavour and store safely until they are ground.",
+     "imageUrl": "/images/hero/chilli.jpg",
+     "imageAlt": "Red chillies drying in Guntur district",
+     "imageCaption": "Chillies drying in the sun at a village in Guntur district.",
+     "imageCredit": "Photo: Adityamadhav83 · CC BY-SA 3.0 (Wikimedia Commons)"
+    },
+    {
+     "heading": "Heat and colour: how chillies are graded",
+     "body": "Not all chillies are made for the same job. Some varieties are grown for fierce heat, others for deep colour with gentle heat, and many fall somewhere in between. Andhra and Telangana grow some of India's hottest commercial varieties, as well as milder ones used mainly for colour.\n\nTraders judge dried chillies by their pungency, their colour, their skin and their moisture. Stems are removed (for 'stemless' grades), damaged pods are sorted out, and the chillies are then ground into powder or sold whole. A good chilli powder starts with good sorting.",
+     "imageUrl": null,
+     "imageAlt": null,
+     "imageCaption": null,
+     "imageCredit": null
+    },
+    {
+     "heading": "Avakaya and gongura: the pickle tradition",
+     "body": "No Andhra meal is complete without pickle. Avakaya, the most famous, is made in early summer from hard, sour raw mangoes, cut with the stone and mixed with mustard powder, red chilli powder, salt and sesame or groundnut oil. Families make it in large batches and it lasts the whole year.\n\nGongura — the leaves of the roselle plant — has a sharp, sour taste and is loved across Andhra and Telangana as pickle and as pachadi (chutney), often with plenty of red chilli and garlic.",
+     "imageUrl": "/images/regions/andhra-pradesh/pickle.jpg",
+     "imageAlt": "Andhra pickle",
+     "imageCaption": "Every Andhra home has its own pickle recipes and jars.",
+     "imageCredit": "Photo: Bhaskaranaidu · CC BY-SA 4.0 (Wikimedia Commons)"
+    },
+    {
+     "heading": "Karam podi and the tiffin plate",
+     "body": "Karam podi, sometimes called 'gunpowder', is a coarse dry powder of roasted urad and chana dal, dried red chillies, garlic, cumin and curry leaves. Mixed with a spoon of ghee or sesame oil, it turns a plate of idli, dosa or pesarattu into something special.\n\nAndhra kitchens make many podis — with curry leaves, with flaxseed, with dals — and they are eaten with hot rice and ghee too.",
+     "imageUrl": "/images/regions/andhra-pradesh/podi.jpg",
+     "imageAlt": "Idli with podi",
+     "imageCaption": "Podi mixed with ghee or sesame oil is the classic partner for idli and dosa.",
+     "imageCredit": "Photo: Karthik Sridhar · CC BY-SA 4.0 (Wikimedia Commons)"
+    },
+    {
+     "heading": "Tamarind and pulihora",
+     "body": "Tamarind is the sour backbone of Andhra food, in rasam, pulusu (tangy stews) and, most famously, pulihora. To make it, cooked rice is mixed with thick tamarind paste and a tempering of mustard seeds, chana and urad dal, peanuts, dried red chillies, curry leaves, turmeric and asafoetida.\n\nPulihora is prepared for festivals and offered as prasadam in temples. It keeps well, which made it a traditional food for journeys too.",
+     "imageUrl": "/images/regions/andhra-pradesh/tamarind.jpg",
+     "imageAlt": "A bowl of pulihora (tamarind rice)",
+     "imageCaption": "Pulihora — tamarind rice with peanuts, curry leaves and a mustard-seed tempering.",
+     "imageCredit": "Photo: Devika · CC BY-SA 2.0 (Wikimedia Commons)"
+    }
+   ],
+   "seoTitle": "Andhra Pradesh: Guntur Chilli, Pickles & Podi | WAH! Spices",
+   "seoDescription": "How Guntur's chillies are grown, dried and graded, and how Andhra cooks use them in avakaya, gongura, karam podi and pulihora.",
+   "isPublished": true,
+   "showOnHome": true
+  },
+  {
+   "name": "Karnataka",
+   "slug": "karnataka",
+   "mapStateId": "ka",
+   "tagline": "Byadgi reds & Coorg greens",
+   "cardText": "From Byadgi's deep-red chillies to pepper vines climbing Coorg's coffee shade trees, Karnataka is a spice garden — and the home of bisi bele bath.",
+   "landmark": "Mysore Palace",
+   "featuredMasala": "Byadgi Chilli",
+   "accentColor": "#9a6b00",
+   "heroImageUrl": "/images/regions/karnataka/hero.jpg",
+   "heroImageCredit": "Photo: Shivamallika · CC BY-SA 4.0 (Wikimedia Commons)",
+   "cardImageUrl": "/images/regions/karnataka/hero-sm.jpg",
+   "signatureMasalas": [
+    {
+     "name": "Bisi bele bath powder",
+     "note": "Byadgi chilli, coriander, lentils, cinnamon and dry coconut."
+    },
+    {
+     "name": "Saaru pudi",
+     "note": "Karnataka's rasam powder."
+    },
+    {
+     "name": "Ghee roast masala",
+     "note": "Byadgi chillies roasted and ground with spices, cooked in ghee."
+    },
+    {
+     "name": "Byadgi chilli powder",
+     "note": "For rich red colour with mild heat."
+    }
+   ],
+   "produces": [
+    {
+     "name": "Byadgi chilli",
+     "icon": "🌶️",
+     "note": "Wrinkled, deep red and mild — prized for colour."
+    },
+    {
+     "name": "Black pepper",
+     "icon": "⚫",
+     "note": "Vines grown on shade trees in Coorg and Chikmagalur coffee estates."
+    },
+    {
+     "name": "Green cardamom",
+     "icon": "🟢",
+     "note": "Grown in the cool, shaded hills of the Western Ghats."
+    },
+    {
+     "name": "Coffee",
+     "icon": "☕",
+     "note": "Karnataka grows most of India's coffee."
+    },
+    {
+     "name": "Coconut & kokum",
+     "icon": "🥥",
+     "note": "The flavours of the coast, from Mangaluru to Karwar."
+    }
+   ],
+   "dishes": [
+    {
+     "name": "Bisi bele bath",
+     "note": "Hot, spiced rice-and-lentil dish with vegetables and tamarind."
+    },
+    {
+     "name": "Mysore masala dosa",
+     "note": "Dosa with a red chutney spread and potato filling."
+    },
+    {
+     "name": "Ragi mudde",
+     "note": "Finger-millet balls eaten with saaru."
+    },
+    {
+     "name": "Mangalorean ghee roast",
+     "note": "Chicken or prawns in a tangy red masala and ghee."
+    },
+    {
+     "name": "Mysore pak",
+     "note": "The famous gram-flour and ghee sweet."
+    }
+   ],
+   "productSlugs": [
+    "sabut-lal-mirch",
+    "lal-mirch-powder",
+    "black-pepper",
+    "elaichi",
+    "kokum",
+    "dry-kokum",
+    "dhania",
+    "methi",
+    "rai",
+    "dry-curry-leaves",
+    "dalchini",
+    "khus-khus"
+   ],
+   "autoLinkProducts": true,
+   "sections": [
+    {
+     "heading": "Byadgi: colour without the fire",
+     "body": "Byadgi, a town in Haveri district in north Karnataka, gives its name to one of India's best-known chillies and is home to a large chilli market. Byadgi chilli has a Geographical Indication tag.\n\nThe pods are long, thin and deeply wrinkled, with a dark red colour and relatively mild heat. That makes them perfect when you want a dish to look rich and red without making it too hot — in South Indian sambars, chutneys and curries. Their natural red pigment is also extracted as an oleoresin used to colour foods.",
+     "imageUrl": "/images/regions/karnataka/byadgi.jpg",
+     "imageAlt": "Byadgi chillies",
+     "imageCaption": "Byadgi chillies are known for their wrinkled skin and deep red colour.",
+     "imageCredit": "Photo: GI tagged products · CC BY-SA 4.0 (Wikimedia Commons)"
+    },
+    {
+     "heading": "Coorg: spices in the coffee shade",
+     "body": "Kodagu, better known as Coorg, sits high in the Western Ghats. Its coffee estates are planted under tall shade trees, and black pepper vines are trained to climb those trees — so one estate produces two crops, and the forest canopy is kept alive.\n\nPepper is harvested in winter when the berry spikes start to turn red. The berries are separated and dried in the sun until they shrivel and turn black. In the cooler, shadier valleys, green cardamom grows too; Coorg green cardamom has its own Geographical Indication tag.",
+     "imageUrl": "/images/regions/karnataka/coorg.jpg",
+     "imageAlt": "A coffee and pepper estate in Coorg",
+     "imageCaption": "In Coorg, coffee grows under tall shade trees, and pepper vines climb those trees.",
+     "imageCredit": "Photo: Dcrjsr · CC BY 3.0 (Wikimedia Commons)"
+    },
+    {
+     "heading": "Bisi bele bath and the Mysore kitchen",
+     "body": "Bisi bele bath means 'hot lentil rice' in Kannada, and it is the pride of the Mysuru region. Rice and toor dal are cooked with vegetables and tamarind, then simmered with a special spice powder of Byadgi chillies, coriander seeds, chana and urad dal, fenugreek, cinnamon, cloves and dry coconut.\n\nFinished with a ghee tempering of mustard seeds, curry leaves and cashews, it is served piping hot. Mysuru also gave the world Mysore pak — a rich sweet of gram flour, sugar and ghee — and the Mysore masala dosa with its spicy red chutney.",
+     "imageUrl": "/images/regions/karnataka/bisi-bele-bath.jpg",
+     "imageAlt": "Bisi bele bath",
+     "imageCaption": "Bisi bele bath is served hot with ghee and crunchy boondi or papad.",
+     "imageCredit": "Photo: Food and Remedy, LLC · CC BY-SA 3.0 (Wikimedia Commons)"
+    },
+    {
+     "heading": "The coast: kokum, coconut and ghee roast",
+     "body": "Along the coast, from Mangaluru to Karwar, cooking changes again. Coconut, fresh fish and kokum — the sour, purple fruit of a Western Ghats tree, dried for use in curries and drinks — take centre stage.\n\nMangalorean ghee roast is made by roasting Byadgi chillies with coriander, cumin, pepper, fenugreek and garlic, grinding them with tamarind and cooking the paste slowly in plenty of ghee with chicken or prawns. Nearby, the temple town of Udupi is famous for its vegetarian cooking — saaru, huli and dosas — Udupi is often credited as the birthplace of the masala dosa.",
+     "imageUrl": "/images/regions/karnataka/coast.jpg",
+     "imageAlt": "A Mangalorean fish meal on a banana leaf",
+     "imageCaption": "A coastal Karnataka meal: fish curry, rice and fried fish on a banana leaf.",
+     "imageCredit": "Photo: Kalesh · CC BY-SA 4.0 (Wikimedia Commons)"
+    }
+   ],
+   "seoTitle": "Karnataka's Spices: Byadgi Chilli & Coorg Pepper | WAH!",
+   "seoDescription": "Byadgi chilli, Coorg pepper and cardamom, bisi bele bath and Mangalorean ghee roast: the spice story of Karnataka.",
+   "isPublished": true,
+   "showOnHome": true
+  },
+  {
+   "name": "Kerala",
+   "slug": "kerala",
+   "mapStateId": "kl",
+   "tagline": "Land of spices",
+   "cardText": "For two thousand years ships sailed to the Malabar coast for pepper. Kerala still grows the spices of the old spice routes — pepper, cardamom, nutmeg and ginger.",
+   "landmark": "Kerala Backwaters",
+   "featuredMasala": "Black Pepper",
+   "accentColor": "#2e7d32",
+   "heroImageUrl": "/images/regions/kerala/hero.jpg",
+   "heroImageCredit": "Photo: Augustus Binu · CC BY-SA 3.0 (Wikimedia Commons)",
+   "cardImageUrl": "/images/regions/kerala/hero-sm.jpg",
+   "signatureMasalas": [
+    {
+     "name": "Kerala fish curry masala",
+     "note": "Red chilli, coriander and turmeric with a sour note."
+    },
+    {
+     "name": "Pepper roast masala",
+     "note": "Plenty of crushed black pepper with fennel and curry leaves."
+    },
+    {
+     "name": "Kerala garam masala",
+     "note": "Cardamom, cloves, cinnamon and fennel."
+    },
+    {
+     "name": "Sambar powder",
+     "note": "For the sambar served at every sadya."
+    }
+   ],
+   "produces": [
+    {
+     "name": "Black pepper",
+     "icon": "⚫",
+     "note": "'Black gold' of the Malabar coast, grown on vines."
+    },
+    {
+     "name": "Green cardamom",
+     "icon": "🟢",
+     "note": "Hand-picked in the shaded Cardamom Hills of Idukki."
+    },
+    {
+     "name": "Nutmeg & mace",
+     "icon": "🌰",
+     "note": "Two spices from one fruit."
+    },
+    {
+     "name": "Cloves & cinnamon",
+     "icon": "🌸",
+     "note": "Grown in the hills and homestead gardens."
+    },
+    {
+     "name": "Ginger & turmeric",
+     "icon": "🫚",
+     "note": "Kerala's dry ginger has been traded for centuries."
+    },
+    {
+     "name": "Coconut",
+     "icon": "🥥",
+     "note": "Oil, milk and grated coconut in nearly every dish."
+    }
+   ],
+   "dishes": [
+    {
+     "name": "Appam & stew",
+     "note": "Lacy rice pancakes with a mild coconut-milk stew."
+    },
+    {
+     "name": "Meen curry",
+     "note": "Fish curry soured with kudampuli (Malabar tamarind)."
+    },
+    {
+     "name": "Avial",
+     "note": "Mixed vegetables in coconut and yoghurt."
+    },
+    {
+     "name": "Sadya",
+     "note": "The festive vegetarian feast on a banana leaf."
+    },
+    {
+     "name": "Thalassery biryani",
+     "note": "Malabar's biryani made with short-grain kaima rice."
+    }
+   ],
+   "productSlugs": [
+    "black-pepper",
+    "safed-mirch",
+    "elaichi",
+    "jaiphal",
+    "javitri",
+    "laung",
+    "dalchini",
+    "dry-ginger",
+    "fish-masala",
+    "haldi-powder",
+    "dry-curry-leaves",
+    "chicken-masala"
+   ],
+   "autoLinkProducts": true,
+   "sections": [
+    {
+     "heading": "The coast the world sailed to",
+     "body": "Long before Europe had heard of chillies, the Malabar coast of Kerala was the source of the world's black pepper. Traders from Rome, Arabia, China and beyond came for it; the ancient port of Muziris, near today's Kodungallur, was famous across the ancient world.\n\nIn 1498 the Portuguese navigator Vasco da Gama landed near Kozhikode (Calicut), opening a sea route from Europe to India that changed world history — largely because of spices. In Kochi's old quarter, spice warehouses still line the streets, and the smell of pepper, ginger and cardamom hangs in the air.",
+     "imageUrl": "/images/regions/kerala/kochi.jpg",
+     "imageAlt": "A Chinese fishing net at Kochi",
+     "imageCaption": "Chinese fishing nets at Kochi, a port that has traded in spices for centuries.",
+     "imageCredit": "Photo: Hans A. Rosbach · CC BY-SA 3.0 (Wikimedia Commons)"
+    },
+    {
+     "heading": "Malabar pepper: black gold",
+     "body": "Black pepper grows on a climbing vine native to the Western Ghats. In Kerala it is often grown in homestead gardens, trained up coconut palms, jackfruit trees and other supports.\n\nThe berries grow on long spikes and are picked in winter, when a few on each spike begin to turn red. They are separated from the spikes and dried in the sun for several days, turning black and wrinkled as they dry. White pepper is made from the same berries by soaking them and removing the outer skin.\n\nMalabar pepper has a Geographical Indication tag. Freshly ground, it has a bright, piney heat that pre-ground pepper quickly loses.",
+     "imageUrl": "/images/hero/pepper.jpg",
+     "imageAlt": "Black pepper on the vine",
+     "imageCaption": "Pepper berries ripen on long spikes; dried in the sun, they turn black and wrinkled.",
+     "imageCredit": "Photo: Vengolis · CC BY-SA 4.0 (Wikimedia Commons)"
+    },
+    {
+     "heading": "The Cardamom Hills",
+     "body": "High in the Western Ghats, in Idukki district, are the Cardamom Hills. Green cardamom is a shade-loving plant related to ginger; its capsules grow on shoots near the ground and ripen a few at a time, so they are picked by hand in rounds through the season.\n\nThe freshly picked capsules are cured in drying sheds with gentle heat, which helps them keep their green colour and their sweet, cooling aroma. Cardamom is one of the world's most valuable spices, and it flavours everything from chai and biryani to payasam.",
+     "imageUrl": "/images/hero/cardamom.jpg",
+     "imageAlt": "Cardamom plantations in the hills",
+     "imageCaption": "Cardamom grows in the cool, shaded hills of the Western Ghats.",
+     "imageCredit": "Photo: Anand2202 · CC BY-SA 4.0 (Wikimedia Commons)"
+    },
+    {
+     "heading": "Nutmeg, mace, cloves and ginger",
+     "body": "The nutmeg tree gives two spices. When its fruit splits open, it reveals a dark seed — the nutmeg — wrapped in a lacy red covering called mace (javitri). The two are separated and dried; the mace fades to orange-gold, and the nutmeg is dried in its shell.\n\nCloves are the dried flower buds of an evergreen tree, picked before they open. Kerala's ginger has been traded as dry ginger for centuries: the rhizomes are peeled, washed and sun-dried, giving the warm, sharp spice called saunth.",
+     "imageUrl": "/images/regions/kerala/nutmeg.jpg",
+     "imageAlt": "Nutmeg fruit with red mace",
+     "imageCaption": "Inside the nutmeg fruit, the seed is wrapped in bright red mace.",
+     "imageCredit": "Photo: Schlawensko · CC BY-SA 4.0 (Wikimedia Commons)"
+    },
+    {
+     "heading": "The Kerala table",
+     "body": "Kerala cooking is built on coconut — oil, milk and grated flesh — along with curry leaves, mustard seeds, shallots and the spices of the hills. Fish curries are soured with kudampuli (Malabar tamarind) and coloured with red chilli; meat is often slow-roasted with a heap of crushed black pepper.\n\nThe sadya, served at Onam and weddings, is a vegetarian feast on a banana leaf: rice with sambar, avial, olan, thoran, pickles and two or three kinds of payasam. In the north, Malabar is famous for its biryani, made with short-grain kaima rice and fragrant whole spices.",
+     "imageUrl": "/images/regions/kerala/sadya.jpg",
+     "imageAlt": "A Kerala sadya on a banana leaf",
+     "imageCaption": "A sadya is served on a banana leaf with many dishes, eaten in a set order.",
+     "imageCredit": "Photo: Sreerajsadanand · CC BY-SA 4.0 (Wikimedia Commons)"
+    }
+   ],
+   "seoTitle": "Kerala, Land of Spices: Malabar Pepper & Cardamom | WAH!",
+   "seoDescription": "The Malabar coast and the spice trade, how pepper, cardamom and nutmeg are grown and dried in Kerala, and the flavours of the Kerala table.",
+   "isPublished": true,
+   "showOnHome": true
+  },
+  {
+   "name": "Tamil Nadu",
+   "slug": "tamil-nadu",
+   "mapStateId": "tn",
+   "tagline": "Temple State",
+   "cardText": "Erode's turmeric, Chettinad's fiery spice cupboard and the daily ritual of sambar and rasam — Tamil cooking is precise, tangy and deeply aromatic.",
+   "landmark": "Brihadeeswarar Temple",
+   "featuredMasala": "Sambar Masala",
+   "accentColor": "#c62828",
+   "heroImageUrl": "/images/regions/tamil-nadu/hero.jpg",
+   "heroImageCredit": "Photo: Rainer Halama; derivative by UnpetitproleX · CC BY-SA 4.0 (Wikimedia Commons)",
+   "cardImageUrl": "/images/regions/tamil-nadu/hero-sm.jpg",
+   "signatureMasalas": [
+    {
+     "name": "Sambar podi",
+     "note": "Coriander, red chilli, dals, fenugreek and curry leaves."
+    },
+    {
+     "name": "Rasam podi",
+     "note": "Pepper, cumin, coriander and dal for a thin, peppery broth."
+    },
+    {
+     "name": "Chettinad masala",
+     "note": "Kalpasi, star anise, fennel, pepper and red chilli."
+    },
+    {
+     "name": "Puliyodarai mix",
+     "note": "Tamarind, sesame and spices for tamarind rice."
+    }
+   ],
+   "produces": [
+    {
+     "name": "Turmeric",
+     "icon": "🟡",
+     "note": "Erode is one of India's great turmeric markets."
+    },
+    {
+     "name": "Tamarind",
+     "icon": "🟤",
+     "note": "'Puli' — the sour heart of sambar and rasam."
+    },
+    {
+     "name": "Curry leaves",
+     "icon": "🍃",
+     "note": "Picked fresh from backyard trees for every tempering."
+    },
+    {
+     "name": "Red chilli",
+     "icon": "🌶️",
+     "note": "Including the round 'mundu' chilli of Ramanathapuram."
+    },
+    {
+     "name": "Rice & coconut",
+     "icon": "🥥",
+     "note": "The Cauvery delta's rice and the coast's coconuts."
+    }
+   ],
+   "dishes": [
+    {
+     "name": "Sambar & rasam",
+     "note": "The daily pair with rice."
+    },
+    {
+     "name": "Chettinad pepper chicken",
+     "note": "Fiery, pepper-heavy and aromatic."
+    },
+    {
+     "name": "Idli & dosa",
+     "note": "With chutney, sambar and podi."
+    },
+    {
+     "name": "Pongal",
+     "note": "Rice and moong dal with pepper and cumin, or sweet with jaggery."
+    },
+    {
+     "name": "Puliyodarai",
+     "note": "Temple-style tamarind rice."
+    }
+   ],
+   "productSlugs": [
+    "haldi-powder",
+    "dry-imli",
+    "dry-curry-leaves",
+    "dagad-phool",
+    "chakri-phool",
+    "saunf",
+    "black-pepper",
+    "rai",
+    "methi",
+    "sabut-lal-mirch",
+    "dhania",
+    "fish-masala",
+    "curry-masala"
+   ],
+   "autoLinkProducts": true,
+   "sections": [
+    {
+     "heading": "Erode: the turmeric city",
+     "body": "Erode, in western Tamil Nadu, is one of India's most important turmeric centres, and Erode turmeric has a Geographical Indication tag. Turmeric is planted from pieces of rhizome and takes most of a year to mature.\n\nAfter harvest, the rhizomes are boiled or steamed, which sets their colour and aroma, then dried in the sun for a couple of weeks until they are hard. Finally they are polished to remove the rough outer skin. The deep yellow colour comes from curcumin, and good turmeric should smell earthy and warm, never musty.",
+     "imageUrl": "/images/hero/turmeric.jpg",
+     "imageAlt": "A turmeric field",
+     "imageCaption": "Turmeric grows from underground rhizomes and is harvested after about nine months.",
+     "imageCredit": "Photo: Thamizhpparithi Maari · CC BY-SA 3.0 (Wikimedia Commons)"
+    },
+    {
+     "heading": "Sambar and rasam podi",
+     "body": "Every Tamil household has its own sambar podi and rasam podi, often made in batches and stored in tins. A typical sambar podi roasts coriander seeds, dried red chillies, chana and toor dal, fenugreek, cumin, black pepper and curry leaves, then grinds them with turmeric and asafoetida.\n\nSambar combines toor dal, vegetables, tamarind and this podi; rasam is lighter — a thin, peppery broth of tamarind, tomato, pepper and cumin that is drunk as much as eaten. Together with rice, they are the backbone of the Tamil meal.",
+     "imageUrl": "/images/regions/tamil-nadu/sambar.jpg",
+     "imageAlt": "Sambar",
+     "imageCaption": "Sambar: lentils, vegetables and tamarind with a freshly made podi.",
+     "imageCredit": "Photo: Samphotography · CC BY-SA 4.0 (Wikimedia Commons)"
+    },
+    {
+     "heading": "Chettinad: the spice merchants' kitchen",
+     "body": "The Chettinad region around Karaikudi is home to the Nattukottai Chettiars, a merchant community whose trade once stretched across Burma, Sri Lanka and South-East Asia. Their grand mansions and their cooking are famous.\n\nChettinad food is known for bold, freshly ground masalas. Alongside black pepper, red chilli, fennel and star anise, cooks use unusual spices such as kalpasi (dagad phool, a lichen with a deep, earthy aroma) and marathi mokku (dried flower buds). Chettinad pepper chicken shows the style perfectly: fiery, fragrant and rich.",
+     "imageUrl": "/images/regions/tamil-nadu/chettinad.jpg",
+     "imageAlt": "Chettinad",
+     "imageCaption": "The Chettiars' trading history shaped one of India's most aromatic cuisines.",
+     "imageCredit": "Photo: Rainer Halama · CC BY-SA 4.0 (Wikimedia Commons)"
+    },
+    {
+     "heading": "Tamarind, curry leaves and the thalippu",
+     "body": "The thalippu (tempering) is where Tamil flavour begins or ends: mustard seeds popped in hot oil, then urad dal for crunch, dried red chilli, a pinch of asafoetida and a handful of fresh curry leaves that crackle and release their aroma.\n\nTamarind (puli) adds the sourness that runs through Tamil food — in sambar, rasam, kuzhambu and puliyodarai. Many homes still keep a curry-leaf tree by the kitchen door.",
+     "imageUrl": "/images/regions/tamil-nadu/curry-leaves.jpg",
+     "imageAlt": "Curry leaves",
+     "imageCaption": "Fresh curry leaves go into almost every Tamil tempering.",
+     "imageCredit": "Photo: Flocci Nivis · CC BY 4.0 (Wikimedia Commons)"
+    },
+    {
+     "heading": "Temple kitchens and festival food",
+     "body": "Tamil Nadu's great temples have kitchens that have cooked offerings (prasadam) for centuries. Puliyodarai, sakkarai pongal (sweet rice with jaggery, ghee and cardamom) and ven pongal (savoury rice and moong dal with pepper, cumin and ghee) are temple classics.\n\nAt Pongal, the January harvest festival, families cook the new season's rice with milk and jaggery in a pot until it boils over — a sign of abundance for the year ahead.",
+     "imageUrl": null,
+     "imageAlt": null,
+     "imageCaption": null,
+     "imageCredit": null
+    }
+   ],
+   "seoTitle": "Tamil Nadu's Spices: Erode Turmeric & Chettinad | WAH!",
+   "seoDescription": "Erode turmeric, sambar and rasam podi, Chettinad spices and temple food: the spice story of Tamil Nadu.",
+   "isPublished": true,
+   "showOnHome": true
+  },
+  {
+   "name": "Maharashtra",
+   "slug": "maharashtra",
+   "mapStateId": "mh",
+   "tagline": "Street food capital",
+   "cardText": "Mumbai's pav bhaji, Kolhapur's fiery misal, Konkan kokum and the dark, nutty goda masala — Maharashtra cooks with confidence.",
+   "landmark": "Gateway of India",
+   "featuredMasala": "Pav Bhaji Masala",
+   "accentColor": "#880e4f",
+   "heroImageUrl": "/images/regions/maharashtra/hero.jpg",
+   "heroImageCredit": "Photo: A.Savin · FAL (Wikimedia Commons)",
+   "cardImageUrl": "/images/regions/maharashtra/hero-sm.jpg",
+   "signatureMasalas": [
+    {
+     "name": "Pav bhaji masala",
+     "note": "Fennel, coriander, chilli, amchur and warm spices."
+    },
+    {
+     "name": "Goda masala",
+     "note": "Roasted coconut, sesame and whole spices — dark, sweetish and nutty."
+    },
+    {
+     "name": "Kolhapuri masala",
+     "note": "Red-hot, for tambda rassa and misal."
+    },
+    {
+     "name": "Malvani masala",
+     "note": "Coastal blend for fish and chicken curries."
+    }
+   ],
+   "produces": [
+    {
+     "name": "Turmeric",
+     "icon": "🟡",
+     "note": "Sangli is one of India's largest turmeric markets."
+    },
+    {
+     "name": "Onion",
+     "icon": "🧅",
+     "note": "Nashik's Lasalgaon is among Asia's biggest onion markets."
+    },
+    {
+     "name": "Kokum",
+     "icon": "🟣",
+     "note": "The sour fruit of the Konkan coast, sun-dried as amsul."
+    },
+    {
+     "name": "Alphonso mango",
+     "icon": "🥭",
+     "note": "Ratnagiri and Devgad's famous hapus."
+    },
+    {
+     "name": "Jowar & bajra",
+     "icon": "🌾",
+     "note": "Millets for bhakri, the rustic flatbread."
+    }
+   ],
+   "dishes": [
+    {
+     "name": "Pav bhaji",
+     "note": "Buttery mashed vegetable curry with soft pav."
+    },
+    {
+     "name": "Vada pav",
+     "note": "Mumbai's potato fritter in a bun."
+    },
+    {
+     "name": "Misal pav",
+     "note": "Spicy sprouted-bean curry with farsan and pav."
+    },
+    {
+     "name": "Puran poli",
+     "note": "Sweet flatbread filled with chana dal and jaggery."
+    },
+    {
+     "name": "Sol kadhi",
+     "note": "Kokum and coconut-milk drink."
+    }
+   ],
+   "productSlugs": [
+    "pav-bhaji-masala",
+    "sandwich-masala",
+    "pani-puri-masala",
+    "chaat-masala",
+    "kokum",
+    "dry-kokum",
+    "haldi-powder",
+    "dagad-phool",
+    "dry-onion",
+    "dry-garlic",
+    "lal-mirch-powder",
+    "safed-til"
+   ],
+   "autoLinkProducts": true,
+   "sections": [
+    {
+     "heading": "Mumbai on a tawa",
+     "body": "Mumbai's most famous street dish is pav bhaji. Popular history traces it to the city's textile mills, where workers needed a quick, filling and cheap meal late in the day. Vendors mashed whatever vegetables were left — potatoes, peas, tomatoes, capsicum, cauliflower — with butter and a special spice blend on a huge flat tawa, and served it with soft bread rolls (pav) toasted in more butter.\n\nPav bhaji masala is built on coriander, cumin, fennel, red chilli, dried mango, black salt and warm spices like cinnamon, cloves and black cardamom. A squeeze of lemon and chopped onion finish it.",
+     "imageUrl": "/images/regions/maharashtra/pav-bhaji.jpg",
+     "imageAlt": "Pav bhaji",
+     "imageCaption": "Pav bhaji is cooked on a huge flat tawa with plenty of butter.",
+     "imageCredit": "Photo: Ashwin Kumar · CC BY-SA 2.0 (Wikimedia Commons)"
+    },
+    {
+     "heading": "The city's street-food heroes",
+     "body": "Vada pav — a spiced potato fritter in a pav with dry garlic chutney and fried green chillies — is often called Mumbai's burger. Then there is bhel puri on the beach, pani puri with tangy mint water, and the Bombay sandwich: buttered bread layered with green chutney, potato, cucumber, tomato and onion, dusted with sandwich masala.\n\nWhat ties them together is a set of bold blends — chaat masala, pani puri masala, sandwich masala — designed to hit sour, salty, spicy and fresh all at once.",
+     "imageUrl": "/images/regions/maharashtra/street-food.jpg",
+     "imageAlt": "Vada pav with a fried green chilli",
+     "imageCaption": "Vada pav, Mumbai's favourite street snack.",
+     "imageCredit": "Photo: Rutvi Mistry · CC BY-SA 4.0 (Wikimedia Commons)"
+    },
+    {
+     "heading": "Goda masala: the sweet-smoky blend",
+     "body": "Goda masala is the signature blend of Maharashtrian homes. Coriander seeds, sesame seeds and dry coconut are roasted until dark, along with cinnamon, cloves, cardamom, bay leaf, dagad phool and dried red chillies, then ground together. The result is dark, nutty and slightly sweet rather than hot.\n\nA spoonful goes into amti (a tangy dal with kokum or tamarind and jaggery), masale bhaat (spiced rice with vegetables) and vegetable dishes like bharli vangi — stuffed brinjals.",
+     "imageUrl": null,
+     "imageAlt": null,
+     "imageCaption": null,
+     "imageCredit": null
+    },
+    {
+     "heading": "Kolhapur's fire",
+     "body": "Kolhapur, in southern Maharashtra, is famous for its fiery food. Its mutton is served with two broths: tambda rassa, red with chillies and spice, and pandhra rassa, a soothing white broth made with coconut milk.\n\nMisal pav, eaten across the state, is a curry of sprouted moth beans topped with a spicy, oily gravy called kat or tarri, crunchy farsan, onion and coriander, served with pav. Kolhapuri masala and kanda-lasun masala — a blend of onion, garlic, red chilli and spices — give these dishes their kick.",
+     "imageUrl": "/images/regions/maharashtra/misal.jpg",
+     "imageAlt": "Misal pav",
+     "imageCaption": "Misal: a spicy sprouted-bean curry topped with farsan, onion and coriander.",
+     "imageCredit": "Photo: Ankushkr2020 · CC BY-SA 4.0 (Wikimedia Commons)"
+    },
+    {
+     "heading": "Konkan: kokum and coconut",
+     "body": "Along the Konkan coast, in Ratnagiri and Sindhudurg, the kokum tree grows in the hills near the sea. Its purple fruit is cut and the rind is sun-dried — often soaked in its own juice and salt — to make amsul, which gives a gentle, fruity sourness to fish curries and dals.\n\nSol kadhi, a pink drink of kokum and coconut milk with garlic and green chilli, is served after a Malvani meal to cool the palate. The same coast is home to the Alphonso mango, and further inland Sangli is one of India's largest turmeric markets.",
+     "imageUrl": "/images/regions/maharashtra/kokum.jpg",
+     "imageAlt": "A glass of sol kadhi",
+     "imageCaption": "Sol kadhi — kokum and coconut milk — served after a Konkan meal.",
+     "imageCredit": "Photo: Kashmira3091 · CC BY-SA 4.0 (Wikimedia Commons)"
+    }
+   ],
+   "seoTitle": "Maharashtra: Pav Bhaji, Goda Masala & Kokum | WAH! Spices",
+   "seoDescription": "Mumbai street food and pav bhaji masala, goda masala, Kolhapuri fire and Konkan kokum: the spice story of Maharashtra.",
+   "isPublished": true,
+   "showOnHome": true
+  },
+  {
+   "name": "Assam",
+   "slug": "assam",
+   "mapStateId": "as",
+   "tagline": "Land of tea gardens",
+   "cardText": "Brahmaputra valley tea, the fierce bhut jolokia and gentle, sour fish curries — Assam's food is simple, fresh and full of character.",
+   "landmark": "Tea Plantations",
+   "featuredMasala": "Masala Chai",
+   "accentColor": "#00695c",
+   "heroImageUrl": "/images/regions/assam/hero.jpg",
+   "heroImageCredit": "Photo: Vikramjit Kakati · CC BY-SA 4.0 (Wikimedia Commons)",
+   "cardImageUrl": "/images/regions/assam/hero-sm.jpg",
+   "signatureMasalas": [
+    {
+     "name": "Chai masala",
+     "note": "Cardamom, ginger, cloves, cinnamon and black pepper."
+    },
+    {
+     "name": "Panch phoron",
+     "note": "Five whole seeds: fenugreek, nigella, cumin, mustard and fennel."
+    },
+    {
+     "name": "Ginger & pepper",
+     "note": "The warming base of many Assamese dishes."
+    }
+   ],
+   "produces": [
+    {
+     "name": "Tea",
+     "icon": "🍵",
+     "note": "Assam tea is a native variety of the tea plant."
+    },
+    {
+     "name": "Bhut jolokia",
+     "icon": "🌶️",
+     "note": "One of the hottest chillies in the world."
+    },
+    {
+     "name": "Ginger",
+     "icon": "🫚",
+     "note": "Karbi Anglong ginger has a Geographical Indication tag."
+    },
+    {
+     "name": "Joha rice",
+     "icon": "🍚",
+     "note": "A fragrant, short-grain aromatic rice."
+    },
+    {
+     "name": "Assam lemon",
+     "icon": "🍋",
+     "note": "Kaji nemu — long, juicy and very fragrant."
+    }
+   ],
+   "dishes": [
+    {
+     "name": "Masor tenga",
+     "note": "Light, sour fish curry."
+    },
+    {
+     "name": "Khar",
+     "note": "A traditional dish made with an alkaline extract of dried banana peel."
+    },
+    {
+     "name": "Aloo pitika",
+     "note": "Mashed potato with mustard oil, onion and green chilli."
+    },
+    {
+     "name": "Duck with ash gourd",
+     "note": "A festive favourite."
+    },
+    {
+     "name": "Pitha",
+     "note": "Rice cakes made for Bihu."
+    }
+   ],
+   "productSlugs": [
+    "elaichi",
+    "dry-ginger",
+    "laung",
+    "dalchini",
+    "black-pepper",
+    "kalonji",
+    "methi",
+    "rai",
+    "saunf",
+    "jeera",
+    "tej-patta"
+   ],
+   "autoLinkProducts": true,
+   "sections": [
+    {
+     "heading": "Where India's tea began",
+     "body": "The tea plant grows wild in the hills of Upper Assam, and local communities such as the Singpho were drinking it long before tea gardens existed. In the 1820s the plant was recorded by British visitors, and by the 1830s and 1840s the first commercial gardens were being planted in the Brahmaputra valley.\n\nToday the valley is covered in neat green tea gardens. Pluckers move along the rows picking 'two leaves and a bud' from the top of each bush; the leaves are withered, rolled or cut, oxidised and dried in the factory. Assam tea is known for its strong, malty, full-bodied cup.",
+     "imageUrl": "/images/regions/assam/tea.jpg",
+     "imageAlt": "Tea leaves being plucked",
+     "imageCaption": "Pluckers pick 'two leaves and a bud' from the top of each tea bush.",
+     "imageCredit": "Photo: Mar11 · CC BY-SA 4.0 (Wikimedia Commons)"
+    },
+    {
+     "heading": "Masala chai, the Indian way",
+     "body": "Strong Assam tea is the base of India's favourite drink, masala chai. Tea leaves are boiled with water, milk and sugar along with spices: crushed green cardamom and ginger above all, often with cloves, cinnamon and black pepper, and sometimes tulsi or fennel.\n\nEvery family and every chai stall has its own balance. In winter, a little dry ginger (saunth) and extra pepper make it especially warming.",
+     "imageUrl": "/images/regions/assam/chai.jpg",
+     "imageAlt": "A cup of masala chai",
+     "imageCaption": "Masala chai: strong tea, milk, sugar and warming spices.",
+     "imageCredit": "Photo: Miansari66 · Public domain (Wikimedia Commons)"
+    },
+    {
+     "heading": "Bhut jolokia",
+     "body": "Assam and its neighbours in the North-East grow the bhut jolokia, also called the ghost pepper or king chilli. In the 2000s it was recognised as the world's hottest chilli, and although hotter hybrids have since been bred, it remains one of the most powerful chillies anywhere.\n\nIn Assamese and North-Eastern kitchens it is used with great care — a sliver in a chutney or pickle, or a whole chilli briefly dipped into a curry and removed. Its heat comes with a fruity, smoky flavour.",
+     "imageUrl": "/images/regions/assam/bhut-jolokia.jpg",
+     "imageAlt": "Bhut jolokia chillies",
+     "imageCaption": "Bhut jolokia is grown in Assam and its neighbouring north-eastern states.",
+     "imageCredit": "Photo: Chiring chandan · CC BY-SA 4.0 (Wikimedia Commons)"
+    },
+    {
+     "heading": "Tenga, khar and pitika",
+     "body": "Assamese cooking is light and clean, using mustard oil, fresh herbs and only a few spices so that the ingredients can shine. Masor tenga is a sour fish curry, made tangy with tomatoes, lemon or elephant apple. Khar, made with an alkaline extract from dried banana peel, is traditionally eaten at the start of a meal.\n\nPitika are simple mashes — of potato, aubergine or fish — mixed with raw mustard oil, onion and green chilli. When spices are used, panch phoron (fenugreek, nigella, cumin, mustard and fennel) and ginger are favourites.",
+     "imageUrl": "/images/regions/assam/assamese-food.jpg",
+     "imageAlt": "An Assamese meal",
+     "imageCaption": "Assamese food uses few spices and lets fresh ingredients lead.",
+     "imageCredit": "Photo: Nilotpal Hazarika · CC BY-SA 4.0 (Wikimedia Commons)"
+    }
+   ],
+   "seoTitle": "Assam: Tea Gardens, Bhut Jolokia & Masala Chai | WAH! Spices",
+   "seoDescription": "How Assam tea is grown and plucked, the spices of a good masala chai, the bhut jolokia chilli and the gentle flavours of Assamese food.",
+   "isPublished": true,
+   "showOnHome": true
+  },
+  {
+   "name": "Jammu & Kashmir",
+   "slug": "jammu-kashmir",
+   "mapStateId": "jk",
+   "tagline": "Saffron & the Kashmiri red",
+   "cardText": "The purple crocus fields of Pampore, ruby-red Kashmiri chillies and the grand Wazwan feast — Kashmir's flavours are fragrant, rich and unhurried.",
+   "landmark": "Dal Lake",
+   "featuredMasala": "Kashmiri Saffron",
+   "accentColor": "#3949ab",
+   "heroImageUrl": "/images/regions/jammu-kashmir/hero.jpg",
+   "heroImageCredit": "Photo: Fulvio Spada · CC BY-SA 2.0 (Wikimedia Commons)",
+   "cardImageUrl": "/images/regions/jammu-kashmir/hero-sm.jpg",
+   "signatureMasalas": [
+    {
+     "name": "Kashmiri chilli powder",
+     "note": "For rich red colour with gentle heat."
+    },
+    {
+     "name": "Ver",
+     "note": "A traditional spice cake of ground spices bound with mustard oil."
+    },
+    {
+     "name": "Saunf & saunth",
+     "note": "Fennel and dry ginger — the base of Kashmiri Pandit cooking."
+    },
+    {
+     "name": "Kahwa spices",
+     "note": "Saffron, cardamom and cinnamon for green tea."
+    }
+   ],
+   "produces": [
+    {
+     "name": "Saffron",
+     "icon": "🌸",
+     "note": "Grown on the karewa plateaus around Pampore."
+    },
+    {
+     "name": "Kashmiri chilli",
+     "icon": "🌶️",
+     "note": "Mild, with a deep, bright red colour."
+    },
+    {
+     "name": "Walnuts & almonds",
+     "icon": "🌰",
+     "note": "From the valley's orchards."
+    },
+    {
+     "name": "Apples",
+     "icon": "🍎",
+     "note": "Kashmir grows most of India's apples."
+    },
+    {
+     "name": "Shahi jeera",
+     "icon": "🌱",
+     "note": "Black cumin from the high hills."
+    }
+   ],
+   "dishes": [
+    {
+     "name": "Rogan josh",
+     "note": "Lamb in a red, aromatic gravy."
+    },
+    {
+     "name": "Yakhni",
+     "note": "Meat cooked in a yoghurt gravy with fennel and cardamom."
+    },
+    {
+     "name": "Gushtaba",
+     "note": "Pounded-meat dumplings in yoghurt — the finale of Wazwan."
+    },
+    {
+     "name": "Dum aloo",
+     "note": "Small potatoes in a Kashmiri-chilli and yoghurt gravy."
+    },
+    {
+     "name": "Kahwa",
+     "note": "Saffron green tea with almonds."
+    }
+   ],
+   "productSlugs": [
+    "saffron",
+    "kashmiri-lal-mirch-powder",
+    "saunf",
+    "dry-ginger",
+    "elaichi",
+    "badi-elaichi",
+    "dalchini",
+    "laung",
+    "mutton-masala",
+    "meat-masala",
+    "tej-patta"
+   ],
+   "autoLinkProducts": true,
+   "sections": [
+    {
+     "heading": "The saffron of Pampore",
+     "body": "Every autumn, the plateaus (karewas) around Pampore, south of Srinagar, turn purple with the flowers of the saffron crocus. They bloom for only a few weeks, usually from late October into November.\n\nThe flowers are picked by hand early in the morning. Each one holds just three crimson stigmas, which are pulled out by hand and dried carefully. It takes a huge number of flowers to make a small amount of saffron, which is why it is one of the most precious spices in the world. Kashmir saffron has a Geographical Indication tag.\n\nGood saffron has long, deep-red threads, a honeyed, hay-like aroma and releases a golden colour slowly when soaked in warm milk or water.",
+     "imageUrl": "/images/regions/jammu-kashmir/saffron-flowers.jpg",
+     "imageAlt": "Saffron crocus flowers",
+     "imageCaption": "Each crocus flower holds three crimson stigmas — the saffron.",
+     "imageCredit": "Photo: Umarsami · CC BY-SA 4.0 (Wikimedia Commons)"
+    },
+    {
+     "heading": "Kashmiri chilli: colour over fire",
+     "body": "Kashmiri chilli is famous for what it does not do: it is not very hot. What it gives instead is a deep, glowing red colour and a mild, fruity flavour. In autumn, chillies are strung into garlands and hung to dry in the sun.\n\nThis is the chilli that gives rogan josh its colour. Much of the 'Kashmiri chilli' sold across India today comes from similar mild, red varieties grown in other states — prized for the same reason: rich colour with gentle heat.",
+     "imageUrl": "/images/regions/jammu-kashmir/kashmiri-chilli.jpg",
+     "imageAlt": "Dried red chillies",
+     "imageCaption": "Mild, deep-red chillies of the Kashmiri type are prized for colour rather than heat.",
+     "imageCredit": "Photo: Inu06 · CC BY-SA 4.0 (Wikimedia Commons)"
+    },
+    {
+     "heading": "Wazwan: the royal feast",
+     "body": "Wazwan is Kashmir's grand ceremonial feast, prepared for weddings and celebrations by master cooks called waza. It can run to many courses, served on a large shared copper platter called a trami, usually for four guests.\n\nThe dishes include rista (pounded-meat balls in a red gravy), rogan josh, yakhni (meat in a fennel-scented yoghurt gravy) and finally gushtaba, soft meatballs in yoghurt. The meat for rista and gushtaba is pounded by hand with wooden mallets until it is completely smooth.",
+     "imageUrl": "/images/regions/jammu-kashmir/wazwan.jpg",
+     "imageAlt": "A bowl of rogan josh",
+     "imageCaption": "Rogan josh, one of the signature dishes of the Wazwan feast.",
+     "imageCredit": "Photo: Kajori.p · CC BY-SA 4.0 (Wikimedia Commons)"
+    },
+    {
+     "heading": "Fennel, dry ginger and ver",
+     "body": "Kashmiri spicing is distinctive. Many Kashmiri Pandit dishes use no onion or garlic, relying instead on ground fennel (saunf), dry ginger (saunth), asafoetida, Kashmiri chilli and yoghurt. The result is fragrant and warming.\n\nKashmiri Muslim cooking often uses ver — a traditional spice cake. Ground spices such as red chilli, fennel, ginger, cardamom and cloves are mixed with mustard oil and sometimes shallots, shaped into rings or discs and dried. Pieces are broken off and added to curries.",
+     "imageUrl": null,
+     "imageAlt": null,
+     "imageCaption": null,
+     "imageCredit": null
+    },
+    {
+     "heading": "Kahwa and the cold valley",
+     "body": "On cold Kashmiri mornings, kahwa is everywhere. Green tea leaves are brewed with saffron threads, crushed green cardamom and cinnamon, then poured into small cups over slivered almonds, often sweetened with sugar or honey. Traditionally it is made in a brass samovar that keeps it hot for hours.\n\nThe valley's orchards add walnuts, almonds and apples to the Kashmiri pantry, and the high hills give shahi jeera (black cumin), a finer, darker cousin of everyday cumin.",
+     "imageUrl": "/images/regions/jammu-kashmir/kahwa.jpg",
+     "imageAlt": "Kashmiri kahwa",
+     "imageCaption": "Kahwa is traditionally brewed in a samovar.",
+     "imageCredit": "Photo: Sayantan Sarkar · CC BY-SA 4.0 (Wikimedia Commons)"
+    }
+   ],
+   "seoTitle": "Kashmir: Pampore Saffron, Kashmiri Chilli & Wazwan | WAH!",
+   "seoDescription": "How saffron is grown and picked in Pampore, why Kashmiri chilli is all about colour, and the spices of Wazwan, ver and kahwa.",
+   "isPublished": true,
+   "showOnHome": true
+  }
+ ]
+}

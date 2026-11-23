@@ -1,0 +1,35 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>cc950312-1e17-4f7f-8ce3-f98f5ed87571</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AspNetCore.HealthChecks.SqlServer" Version="8.0.1" />
+    <!-- pinned: transitive 5.2.0 pulled Azure.Identity 1.10.3 (GHSA-wvxc-855f-jvrv, GHSA-m5vv-6r4h-3vj9) -->
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="5.2.3" />
+    <PackageReference Include="AspNetCoreRateLimit" Version="5.0.0" />
+    <PackageReference Include="ClosedXML" Version="0.105.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.34" />
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.10" />
+    <PackageReference Include="Serilog.AspNetCore" Version="9.0.0" />
+    <PackageReference Include="Serilog.Enrichers.Environment" Version="3.0.1" />
+    <PackageReference Include="Serilog.Sinks.File" Version="7.0.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="10.2.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Regional Flavours seed stories (RegionSeeder inserts missing regions only) -->
+    <EmbeddedResource Include="Services\Seed\regions.seed.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\WahSpices.Application\WahSpices.Application.csproj" />
+    <ProjectReference Include="..\WahSpices.Infrastructure\WahSpices.Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,27 @@
+# Build output
+bin/
+obj/
+*.user
+*.suo
+.vs/
+.vscode/
+.idea/
+
+# Runtime logs and local data
+Logs/
+*.log
+WahSpices.API/App_Data/
+WahSpices.API/wwwroot/uploads/*
+!WahSpices.API/wwwroot/uploads/products/
+WahSpices.API/wwwroot/uploads/products/*
+!WahSpices.API/wwwroot/uploads/products/catalog/
+
+# Secrets (real values live in user-secrets / environment variables)
+appsettings.*.local.json
+*.pfx
+.env
+.env.*
+
+# OS / tools
+.DS_Store
+.claude/
