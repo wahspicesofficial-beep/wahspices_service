@@ -59,8 +59,11 @@ public static class SecretsValidator
         catch (InvalidOperationException ex) { errors.Add(ex.Message); }
 
         // ── Payments (Razorpay) ──
-        Require("Razorpay:KeyId", false, "online payments");
-        Require("Razorpay:KeySecret", false, "online payments + signature verification");
+        // Optional: without both keys online payment is switched off (PaymentService refuses with PAYMENTS_DISABLED —
+        // it never signs/verifies with a placeholder), and Cash on Delivery keeps working.
+        var rzpId = config["Razorpay:KeyId"]; var rzpSecret = config["Razorpay:KeySecret"];
+        var rzpSet = !string.IsNullOrWhiteSpace(rzpId) && !IsPlaceholder(rzpId) && !string.IsNullOrWhiteSpace(rzpSecret) && !IsPlaceholder(rzpSecret);
+        if (!rzpSet) warnings.Add("Razorpay:KeyId / Razorpay:KeySecret not set — online payments are OFF (Cash on Delivery only)");
 
         // ── Email ──
         var mode = config["Email:DeliveryMode"];

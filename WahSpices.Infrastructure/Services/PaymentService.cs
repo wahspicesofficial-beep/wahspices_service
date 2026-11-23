@@ -24,8 +24,28 @@ public class PaymentService : IPaymentService
     private readonly IInvoiceService _invoice;
     private readonly IOrderEmails _emails;
 
-    private string KeyId => _config["Razorpay:KeyId"] ?? throw new InvalidOperationException("Razorpay KeyId not configured");
-    private string KeySecret => _config["Razorpay:KeySecret"] ?? throw new InvalidOperationException("Razorpay KeySecret not configured");
+    private string KeyId => RazorpayKey("Razorpay:KeyId");
+    private string KeySecret => RazorpayKey("Razorpay:KeySecret");
+
+    /// <summary>
+    /// Razorpay keys are optional (online payments can be switched off by leaving them unset). A missing or placeholder
+    /// key must never be used: the placeholder text is public, so signing/verifying with it would let anyone forge a
+    /// "paid" signature. Any online-payment call fails with a clear 503 instead.
+    /// </summary>
+    private string RazorpayKey(string key)
+    {
+        var v = _config[key];
+        if (string.IsNullOrWhiteSpace(v) || IsPlaceholderKey(v))
+        {
+            _logger.LogWarning("Online payment requested but {Key} is not configured", key);
+            throw new AppException("Online payment is not available right now. Please choose Cash on Delivery.", 503, "PAYMENTS_DISABLED");
+        }
+        return v;
+    }
+
+    internal static bool IsPlaceholderKey(string v) =>
+        v.Contains("SET-IN-", StringComparison.OrdinalIgnoreCase) || v.Contains("YOUR_", StringComparison.OrdinalIgnoreCase)
+        || v.Contains("PLACEHOLDER", StringComparison.OrdinalIgnoreCase) || v.Contains("CHANGE_ME", StringComparison.OrdinalIgnoreCase);
 
     public PaymentService(AppDbContext db, IConfiguration config,
         ILogger<PaymentService> logger, HttpClient httpClient,
