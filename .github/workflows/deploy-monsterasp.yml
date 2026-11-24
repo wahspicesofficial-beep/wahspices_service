@@ -59,12 +59,13 @@ jobs:
           echo '<html><body>Updating WAH! Spices API, back in a minute.</body></html>' > app_offline.htm
           # app_offline.htm stops the app so its DLLs are not locked; mirror never deletes server-only
           # files (Logs, uploaded images), it only adds/overwrites what the build produced.
+          # appsettings*.json are never uploaded: the server keeps its own copy with the real values.
           lftp --env-password -u "$FTP_USER" "sftp://$FTP_HOST" -e "
             set sftp:auto-confirm yes;
             set net:max-retries 3;
             set net:timeout 30;
             put app_offline.htm -o wwwroot/app_offline.htm;
-            mirror --reverse --parallel=4 --verbose=1 publish/ wwwroot/;
+            mirror --reverse --parallel=4 --verbose=1 --exclude-glob appsettings*.json publish/ wwwroot/;
             rm -f wwwroot/app_offline.htm;
             bye"
 
