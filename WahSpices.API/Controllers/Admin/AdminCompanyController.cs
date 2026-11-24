@@ -16,7 +16,7 @@ namespace WahSpices.API.Controllers.Admin;
 // Partner capital & settlement data is sensitive: everything sits behind the "Company" module.
 // ═══════════════════════════════════════════════════════════════════════════
 
-public record PartnerRequest(string Name, string? Phone, string? Email, decimal SharePercent, bool IsActive = true, DateTime? JoinedOn = null, string? Notes = null);
+public record PartnerRequest(string Name, string? Phone, string? Email, decimal SharePercent, bool IsActive = true, DateTime? JoinedOn = null, string? Notes = null, int? AdminUserId = null);
 public record PartnerTxnRequest(DateTime Date, string Type, int? FromPartnerId, int? ToPartnerId, decimal Amount, string? Mode, string? Reference, string? Notes);
 public record CompanyExpenseRequest(DateTime Date, string Category, string Description, decimal Amount, string? Notes,
     string? PayerType, string? PaidBy, int? PaidByPartnerId, string? SplitMethod, string? CustomMode, List<SplitInput>? Splits)
@@ -33,11 +33,14 @@ internal static class CompanyMap
     public static string PartyName(int? id, IReadOnlyDictionary<int, string> names) =>
         id == null ? CompanyFinance.CompanyName : names.TryGetValue(id.Value, out var n) ? n : $"Partner #{id}";
 
-    public static object Expense(ExpenseEntry e, IReadOnlyDictionary<int, string> names) => new
+    public static object Expense(ExpenseEntry e, IReadOnlyDictionary<int, string> names, ExpenseApproval.Approver? me = null) => new
     {
         e.Id, e.Date, e.Category, e.Description, e.Amount, e.PaidBy, e.PayerType, e.PaidByPartnerId,
         PaidByName = e.PayerType == CompanyPayer.Partner ? PartyName(e.PaidByPartnerId, names) : CompanyFinance.CompanyName,
-        e.SplitMethod, e.IsApproved, e.ApprovedBy, e.Notes, e.SourceType, e.SourceId,
+        e.SplitMethod, e.IsApproved, e.ApprovedBy, e.ApprovedAt, e.Notes, e.SourceType, e.SourceId,
+        AddedBy = e.CreatedBy,
+        AddedByMe = me != null && ExpenseApproval.IsCreator(e, me),
+        CanApprove = me != null && ExpenseApproval.CanApprove(e, me),
         HasReceipt = e.ReceiptUrl != null && e.ReceiptUrl.StartsWith(CompanyDocStore.Prefix),
         Splits = e.Splits.OrderBy(s => s.PartnerId == null).ThenBy(s => s.Id)
             .Select(s => new { s.PartnerId, PartnerName = PartyName(s.PartnerId, names), s.Percent, s.Amount }),
@@ -122,11 +125,44 @@ public class AdminCompanyController : AdminBaseController
     {
         var list = await _db.Partners.AsNoTracking().Where(p => !p.IsDeleted).OrderByDescending(p => p.IsActive).ThenBy(p => p.Name).ToListAsync();
         var (total, warning) = await CompanyMap.ShareCheckAsync(_db);
+        var loginIds = list.Where(p => p.AdminUserId != null).Select(p => p.AdminUserId!.Value).ToList();
+        var logins = await _db.AdminUsers.AsNoTracking().Where(a => loginIds.Contains(a.Id) && !a.IsDeleted)
+            .ToDictionaryAsync(a => a.Id, a => new { a.Name, a.Email });
         return Ok(ApiResponse<object>.Ok(new
         {
-            partners = list.Select(p => new { p.Id, p.Name, p.Phone, p.Email, p.SharePercent, p.IsActive, p.JoinedOn, p.Notes }),
+            partners = list.Select(p => new
+            {
+                p.Id, p.Name, p.Phone, p.Email, p.SharePercent, p.IsActive, p.JoinedOn, p.Notes, p.AdminUserId,
+                AdminLogin = p.AdminUserId != null && logins.TryGetValue(p.AdminUserId.Value, out var l) ? $"{l.Name} ({l.Email})" : null,
+            }),
             shareTotal = total, shareWarning = warning,
         }));
+    }
+
+    /// <summary>Admin logins a partner can be linked to (for the partner form's "Admin login" picker).</summary>
+    [HttpGet("partner-logins")]
+    public async Task<IActionResult> PartnerLogins()
+    {
+        var linked = await _db.Partners.AsNoTracking().Where(p => !p.IsDeleted && p.AdminUserId != null)
+            .ToDictionaryAsync(p => p.AdminUserId!.Value, p => new { p.Id, p.Name });
+        var users = await _db.AdminUsers.AsNoTracking().Where(a => !a.IsDeleted && a.IsActive)
+            .OrderBy(a => a.Name).Select(a => new { a.Id, a.Name, a.Email }).ToListAsync();
+        return Ok(ApiResponse<object>.Ok(users.Select(u => new
+        {
+            u.Id, u.Name, u.Email,
+            LinkedPartnerId = linked.TryGetValue(u.Id, out var lp) ? lp.Id : (int?)null,
+            LinkedPartnerName = linked.TryGetValue(u.Id, out var lp2) ? lp2.Name : null,
+        })));
+    }
+
+    /// <summary>The login must exist and not already belong to another partner.</summary>
+    private async Task<string?> ValidateLoginAsync(int? adminUserId, int? partnerId)
+    {
+        if (adminUserId == null) return null;
+        if (!await _db.AdminUsers.AnyAsync(a => a.Id == adminUserId && !a.IsDeleted)) return "That admin login no longer exists.";
+        var other = await _db.Partners.AsNoTracking()
+            .FirstOrDefaultAsync(p => p.AdminUserId == adminUserId && !p.IsDeleted && p.Id != (partnerId ?? 0));
+        return other == null ? null : $"That admin login is already linked to partner {other.Name}.";
     }
 
     private static string? ValidatePartner(PartnerRequest r)
@@ -142,10 +178,11 @@ public class AdminCompanyController : AdminBaseController
     public async Task<IActionResult> CreatePartner([FromBody] PartnerRequest r)
     {
         if (ValidatePartner(r) is { } err) return Bad(err);
+        if (await ValidateLoginAsync(r.AdminUserId, null) is { } loginErr) return Bad(loginErr);
         var p = new Partner
         {
             Name = r.Name.Trim(), Phone = r.Phone?.Trim(), Email = r.Email?.Trim(), SharePercent = Math.Round(r.SharePercent, 2),
-            IsActive = r.IsActive, JoinedOn = r.JoinedOn, Notes = r.Notes, CreatedBy = AdminName,
+            IsActive = r.IsActive, JoinedOn = r.JoinedOn, Notes = r.Notes, CreatedBy = AdminName, AdminUserId = r.AdminUserId,
         };
         _db.Partners.Add(p);
         await _db.SaveChangesAsync();
@@ -159,6 +196,8 @@ public class AdminCompanyController : AdminBaseController
         var p = await _db.Partners.FirstOrDefaultAsync(x => x.Id == id && !x.IsDeleted);
         if (p == null) return Missing("Partner");
         if (ValidatePartner(r) is { } err) return Bad(err);
+        if (await ValidateLoginAsync(r.AdminUserId, id) is { } loginErr) return Bad(loginErr);
+        p.AdminUserId = r.AdminUserId;
         p.Name = r.Name.Trim(); p.Phone = r.Phone?.Trim(); p.Email = r.Email?.Trim(); p.SharePercent = Math.Round(r.SharePercent, 2);
         p.IsActive = r.IsActive; p.JoinedOn = r.JoinedOn; p.Notes = r.Notes; p.UpdatedAt = DateTime.UtcNow; p.UpdatedBy = AdminName;
         await _db.SaveChangesAsync();
@@ -303,7 +342,7 @@ public class AdminCompanyController : AdminBaseController
 
     [HttpGet("expenses")]
     public async Task<IActionResult> Expenses([FromQuery] DateTime? from, [FromQuery] DateTime? to, [FromQuery] int? partnerId,
-        [FromQuery] string? payer, [FromQuery] string? category, [FromQuery] string? search)
+        [FromQuery] string? payer, [FromQuery] string? category, [FromQuery] string? search, [FromQuery] string? approval)
     {
         var q = _db.ExpenseEntries.AsNoTracking().Include(e => e.Splits).Where(e => !e.IsDeleted);
         if (from != null) q = q.Where(e => e.Date >= from.Value.Date);
@@ -312,13 +351,20 @@ public class AdminCompanyController : AdminBaseController
         if (partnerId != null) q = q.Where(e => e.PaidByPartnerId == partnerId || e.Splits.Any(s => s.PartnerId == partnerId));
         if (!string.IsNullOrWhiteSpace(category)) q = q.Where(e => e.Category == category);
         if (!string.IsNullOrWhiteSpace(search)) q = q.Where(e => e.Description.Contains(search) || (e.Notes != null && e.Notes.Contains(search)));
+        if (approval == "pending") q = q.Where(e => !e.IsApproved);
+        else if (approval == "approved") q = q.Where(e => e.IsApproved);
         var list = await q.OrderByDescending(e => e.Date).ThenByDescending(e => e.Id).Take(3000).ToListAsync();
+        var me = await ExpenseApproval.ForAsync(_db, AdminId, AdminName);
+        if (approval == "mine") list = list.Where(e => ExpenseApproval.CanApprove(e, me)).ToList();   // waiting for my approval
         var names = await CompanyMap.PartnerNamesAsync(_db);
         return Ok(ApiResponse<object>.Ok(new
         {
-            expenses = list.Select(e => CompanyMap.Expense(e, names)),
+            expenses = list.Select(e => CompanyMap.Expense(e, names, me)),
+            me = new { isPartner = me.Partner != null, partnerName = me.Partner?.Name },
             totals = new
             {
+                pending = list.Count(e => !e.IsApproved),
+                awaitingMe = list.Count(e => ExpenseApproval.CanApprove(e, me)),
                 amount = list.Sum(e => e.Amount),
                 count = list.Count,
                 partnerPaid = list.Where(e => e.PayerType == CompanyPayer.Partner).Sum(e => e.Amount),
@@ -332,7 +378,22 @@ public class AdminCompanyController : AdminBaseController
     {
         var e = await _db.ExpenseEntries.AsNoTracking().Include(x => x.Splits).FirstOrDefaultAsync(x => x.Id == id && !x.IsDeleted);
         if (e == null) return Missing("Expense");
-        return Ok(ApiResponse<object>.Ok(CompanyMap.Expense(e, await CompanyMap.PartnerNamesAsync(_db))));
+        var me = await ExpenseApproval.ForAsync(_db, AdminId, AdminName);
+        return Ok(ApiResponse<object>.Ok(CompanyMap.Expense(e, await CompanyMap.PartnerNamesAsync(_db), me)));
+    }
+
+    /// <summary>Approve: only a partner other than the one who added the expense.</summary>
+    [HttpPut("expenses/{id:int}/approve")]
+    public async Task<IActionResult> ApproveExpense(int id)
+    {
+        var e = await _db.ExpenseEntries.Include(x => x.Splits).FirstOrDefaultAsync(x => x.Id == id && !x.IsDeleted);
+        if (e == null) return Missing("Expense");
+        var me = await ExpenseApproval.ForAsync(_db, AdminId, AdminName);
+        if (ExpenseApproval.Check(e, me) is { } no)
+            return StatusCode(no.Code == "ALREADY_APPROVED" ? 400 : 403, ApiResponse<object>.Fail(no.Code, no.Message));
+        ExpenseApproval.Approve(e, me);
+        await _db.SaveChangesAsync();
+        return Ok(ApiResponse<object>.Ok(CompanyMap.Expense(e, await CompanyMap.PartnerNamesAsync(_db), me), $"Approved by {e.ApprovedBy}."));
     }
 
     private static string? ValidateExpense(CompanyExpenseRequest r)
@@ -348,11 +409,14 @@ public class AdminCompanyController : AdminBaseController
     public async Task<IActionResult> CreateExpense([FromBody] CompanyExpenseRequest r)
     {
         if (ValidateExpense(r) is { } err) return Bad(err);
-        var e = new ExpenseEntry { Date = r.Date, Category = r.Category.Trim(), Description = r.Description.Trim(), Amount = Math.Round(r.Amount, 2), Notes = r.Notes, CreatedBy = AdminName };
+        var e = new ExpenseEntry { Date = r.Date, Category = r.Category.Trim(), Description = r.Description.Trim(), Amount = Math.Round(r.Amount, 2), Notes = r.Notes,
+                                   CreatedBy = AdminName, CreatedByAdminId = int.TryParse(AdminId, out var aid) ? aid : null };
         if (await CompanyFinance.ApplyAsync(_db, e, r.Payment) is { } splitErr) return Bad(splitErr);
         _db.ExpenseEntries.Add(e);
         await _db.SaveChangesAsync();
-        return StatusCode(201, ApiResponse<object>.Ok(CompanyMap.Expense(e, await CompanyMap.PartnerNamesAsync(_db))));
+        var me = await ExpenseApproval.ForAsync(_db, AdminId, AdminName);
+        return StatusCode(201, ApiResponse<object>.Ok(CompanyMap.Expense(e, await CompanyMap.PartnerNamesAsync(_db), me),
+            "Expense added. Another partner has to approve it."));
     }
 
     [HttpPut("expenses/{id:int}")]
@@ -361,11 +425,16 @@ public class AdminCompanyController : AdminBaseController
         var e = await _db.ExpenseEntries.Include(x => x.Splits).FirstOrDefaultAsync(x => x.Id == id && !x.IsDeleted);
         if (e == null) return Missing("Expense");
         if (ValidateExpense(r) is { } err) return Bad(err);
+        var before = ExpenseApproval.MoneyKey(e);
         e.Date = r.Date; e.Category = r.Category.Trim(); e.Description = r.Description.Trim(); e.Amount = Math.Round(r.Amount, 2); e.Notes = r.Notes;
         e.UpdatedAt = DateTime.UtcNow; e.UpdatedBy = AdminName;
         if (await CompanyFinance.ApplyAsync(_db, e, r.Payment) is { } splitErr) return Bad(splitErr);
+        var reapprove = e.IsApproved && ExpenseApproval.MoneyKey(e) != before;   // amount / payer / split changed
+        if (reapprove) ExpenseApproval.ResetApproval(e);
         await _db.SaveChangesAsync();
-        return Ok(ApiResponse<object>.Ok(CompanyMap.Expense(e, await CompanyMap.PartnerNamesAsync(_db))));
+        var me = await ExpenseApproval.ForAsync(_db, AdminId, AdminName);
+        return Ok(ApiResponse<object>.Ok(CompanyMap.Expense(e, await CompanyMap.PartnerNamesAsync(_db), me),
+            reapprove ? "Saved. The amount, payer or split changed, so the expense needs approval again." : "Saved."));
     }
 
     [HttpDelete("expenses/{id:int}")]

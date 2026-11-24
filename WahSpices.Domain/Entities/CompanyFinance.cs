@@ -33,6 +33,8 @@ public class Partner : BaseEntity
     public bool IsActive { get; set; } = true;
     public DateTime? JoinedOn { get; set; }
     public string? Notes { get; set; }
+    /// <summary>The partner's admin-panel login. Only linked partners can approve expenses, and never their own.</summary>
+    public int? AdminUserId { get; set; }
 }
 
 /// <summary>Per-partner share of one expense. PartnerId null = borne by the company itself (no split).</summary>

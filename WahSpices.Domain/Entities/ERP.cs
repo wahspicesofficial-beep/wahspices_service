@@ -533,6 +533,10 @@ public class ExpenseEntry : BaseEntity
     public string PaidBy { get; set; } = string.Empty; // PettyCash | BankTransfer | UPI
     public bool IsApproved { get; set; } = false;
     public string? ApprovedBy { get; set; }
+    // Approval rule (ExpenseApproval): the admin who added an expense can't approve it — another partner does.
+    public int? CreatedByAdminId { get; set; }
+    public int? ApprovedByAdminId { get; set; }
+    public DateTime? ApprovedAt { get; set; }
     public string? ReceiptUrl { get; set; }
     public string? Notes { get; set; }
     // Company finance (CompanyFinance.cs): who paid + how the cost is split between partners

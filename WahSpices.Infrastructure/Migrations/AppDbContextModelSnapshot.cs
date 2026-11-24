@@ -2072,8 +2072,14 @@ namespace WahSpices.Infrastructure.Migrations
                     b.Property<decimal>("Amount")
                         .HasColumnType("decimal(18,2)");
 
+                    b.Property<DateTime?>("ApprovedAt")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("ApprovedBy")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("ApprovedByAdminId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Category")
                         .IsRequired()
@@ -2084,6 +2090,9 @@ namespace WahSpices.Infrastructure.Migrations
 
                     b.Property<string>("CreatedBy")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("CreatedByAdminId")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
@@ -4012,6 +4021,9 @@ namespace WahSpices.Infrastructure.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<int?>("AdminUserId")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
@@ -4054,6 +4066,10 @@ namespace WahSpices.Infrastructure.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("AdminUserId")
+                        .IsUnique()
+                        .HasFilter("[AdminUserId] IS NOT NULL AND [IsDeleted] = 0");
 
                     b.ToTable("Partners");
                 });

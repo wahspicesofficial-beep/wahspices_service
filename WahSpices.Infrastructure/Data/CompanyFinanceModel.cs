@@ -25,6 +25,8 @@ public static class CompanyFinanceModel
             e.Property(x => x.Email).HasMaxLength(256);
             e.Property(x => x.SharePercent).HasColumnType("decimal(5,2)");
             e.Property(x => x.Notes).HasMaxLength(1000);
+            // one partner per admin login
+            e.HasIndex(x => x.AdminUserId).IsUnique().HasFilter("[AdminUserId] IS NOT NULL AND [IsDeleted] = 0");
         });
 
         modelBuilder.Entity<ExpenseSplit>(e =>

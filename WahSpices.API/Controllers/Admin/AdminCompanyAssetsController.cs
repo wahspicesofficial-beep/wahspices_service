@@ -97,9 +97,10 @@ public class AdminCompanyAssetsController : AdminBaseController
         {
             var cat = string.IsNullOrWhiteSpace(r.ExpenseCategory) ? DefaultExpenseCategory : r.ExpenseCategory.Trim();
             if (cat == DefaultExpenseCategory) await CompanyFinance.EnsureCategoryAsync(_db, cat, "indigo", AdminName);
-            e = new ExpenseEntry { Category = cat, CreatedBy = AdminName, SourceType = "Asset" };
+            e = new ExpenseEntry { Category = cat, CreatedBy = AdminName, CreatedByAdminId = int.TryParse(AdminId, out var aid) ? aid : null, SourceType = "Asset" };
         }
         else { e!.UpdatedAt = DateTime.UtcNow; e.UpdatedBy = AdminName; if (!string.IsNullOrWhiteSpace(r.ExpenseCategory)) e.Category = r.ExpenseCategory.Trim(); }
+        var moneyBefore = isNew ? null : ExpenseApproval.MoneyKey(e);
         e.Date = a.PurchaseDate;
         e.Amount = a.Cost;
         e.Description = $"Asset purchase: {a.Name}" + (string.IsNullOrWhiteSpace(a.Vendor) ? "" : $" ({a.Vendor})");
@@ -110,6 +111,7 @@ public class AdminCompanyAssetsController : AdminBaseController
         }
         else if (isNew) return "Choose who paid for the asset.";
         else await CompanyFinance.ResplitAsync(_db, e);
+        if (!isNew && e.IsApproved && ExpenseApproval.MoneyKey(e) != moneyBefore) ExpenseApproval.ResetApproval(e);   // re-approve after a money change
         if (isNew) { _db.ExpenseEntries.Add(e); await _db.SaveChangesAsync(); a.ExpenseEntryId = e.Id; e.SourceId = a.Id; }
         return null;
     }

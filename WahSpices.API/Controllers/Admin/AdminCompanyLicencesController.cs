@@ -127,9 +127,10 @@ public class AdminCompanyLicencesController : AdminBaseController
         {
             var cat = string.IsNullOrWhiteSpace(r.ExpenseCategory) ? DefaultExpenseCategory : r.ExpenseCategory.Trim();
             if (cat == DefaultExpenseCategory) await CompanyFinance.EnsureCategoryAsync(_db, cat, "teal", AdminName);
-            e = new ExpenseEntry { Category = cat, CreatedBy = AdminName, SourceType = "Licence" };
+            e = new ExpenseEntry { Category = cat, CreatedBy = AdminName, CreatedByAdminId = int.TryParse(AdminId, out var aid) ? aid : null, SourceType = "Licence" };
         }
         else { e!.UpdatedAt = DateTime.UtcNow; e.UpdatedBy = AdminName; if (!string.IsNullOrWhiteSpace(r.ExpenseCategory)) e.Category = r.ExpenseCategory.Trim(); }
+        var moneyBefore = isNew ? null : ExpenseApproval.MoneyKey(e);
         e.Date = l.StartDate ?? CompanyFinance.TodayIst();
         e.Amount = l.Fee;
         e.Description = $"Licence fee: {l.Title}" + (string.IsNullOrWhiteSpace(l.Number) ? "" : $" ({l.Number})");
@@ -139,6 +140,7 @@ public class AdminCompanyLicencesController : AdminBaseController
         }
         else if (isNew) return "Choose who paid the fee.";
         else await CompanyFinance.ResplitAsync(_db, e);
+        if (!isNew && e.IsApproved && ExpenseApproval.MoneyKey(e) != moneyBefore) ExpenseApproval.ResetApproval(e);   // re-approve after a money change
         if (isNew) { _db.ExpenseEntries.Add(e); await _db.SaveChangesAsync(); l.ExpenseEntryId = e.Id; e.SourceId = l.Id; }
         return null;
     }

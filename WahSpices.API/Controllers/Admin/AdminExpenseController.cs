@@ -7,6 +7,7 @@ using WahSpices.Domain.Entities;
 using WahSpices.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using WahSpices.API.Authorization;
+using WahSpices.API.Services;
 
 namespace WahSpices.API.Controllers.Admin;
 
@@ -110,8 +111,10 @@ public class AdminExpenseController : AdminBaseController
             PendingAmount = await monthQ.Where(e => !e.IsApproved).SumAsync(e => (decimal?)e.Amount) ?? 0,
         };
         var partnerNames = await CompanyMap.PartnerNamesAsync(_db);   // company module: who paid (partner) + split
+        var me = await ExpenseApproval.ForAsync(_db, AdminId, AdminName);
         return Ok(ApiResponse<object>.Ok(new {
-            expenses = list.Select(e => new { e.Id, e.Date, e.Category, e.Description, e.Amount, e.PaidBy, e.IsApproved, e.ApprovedBy, e.Notes,
+            expenses = list.Select(e => new { e.Id, e.Date, e.Category, e.Description, e.Amount, e.PaidBy, e.IsApproved, e.ApprovedBy, e.ApprovedAt, e.Notes,
+                AddedBy = e.CreatedBy, AddedByMe = ExpenseApproval.IsCreator(e, me), CanApprove = ExpenseApproval.CanApprove(e, me),
                 e.PayerType, e.PaidByPartnerId, PaidByName = e.PayerType == CompanyPayer.Partner ? CompanyMap.PartyName(e.PaidByPartnerId, partnerNames) : null,
                 e.SplitMethod, e.SourceType, HasReceipt = e.ReceiptUrl != null }),
             summary,
@@ -206,7 +209,8 @@ public class AdminExpenseController : AdminBaseController
         var err = Validate(req);
         if (err != null) return BadRequest(ApiResponse<object>.Fail("INVALID", err));
         if (req.PaidBy == CompanyPayer.Partner) return BadRequest(ApiResponse<object>.Fail("INVALID", "Record partner-paid expenses in Company → Expenses & split."));
-        var e = new ExpenseEntry { Date = req.Date, Category = req.Category, Description = req.Description, Amount = req.Amount, PaidBy = req.PaidBy, Notes = req.Notes, CreatedBy = AdminName };
+        var e = new ExpenseEntry { Date = req.Date, Category = req.Category, Description = req.Description, Amount = req.Amount, PaidBy = req.PaidBy, Notes = req.Notes,
+                                   CreatedBy = AdminName, CreatedByAdminId = int.TryParse(AdminId, out var aid) ? aid : null };
         _db.ExpenseEntries.Add(e);
         await _db.SaveChangesAsync();
         return StatusCode(201, ApiResponse<object>.Ok(new { e.Id, e.Date, e.Category, e.Description, e.Amount, e.PaidBy, e.IsApproved, e.Notes }));
@@ -223,10 +227,13 @@ public class AdminExpenseController : AdminBaseController
         if ((e.PayerType == CompanyPayer.Partner) != (req.PaidBy == CompanyPayer.Partner))
             return BadRequest(ApiResponse<object>.Fail("INVALID", "Change who paid (partner / company) in Company → Expenses & split."));
         var amountChanged = e.Amount != req.Amount;
+        var reapprove = e.IsApproved && (amountChanged || e.PaidBy != req.PaidBy);   // money changed → approve again
+        if (reapprove) ExpenseApproval.ResetApproval(e);
         e.Date = req.Date; e.Category = req.Category; e.Description = req.Description; e.Amount = req.Amount; e.PaidBy = req.PaidBy; e.Notes = req.Notes; e.UpdatedAt = DateTime.UtcNow;
         if (amountChanged) await WahSpices.Infrastructure.Services.CompanyFinance.ResplitAsync(_db, e);   // keep partner split rows in step
         await _db.SaveChangesAsync();
-        return Ok(ApiResponse<object>.Ok(new { e.Id, e.Date, e.Category, e.Description, e.Amount, e.PaidBy, e.IsApproved, e.Notes }));
+        return Ok(ApiResponse<object>.Ok(new { e.Id, e.Date, e.Category, e.Description, e.Amount, e.PaidBy, e.IsApproved, e.Notes },
+            reapprove ? "Saved. The amount or payment changed, so the expense needs approval again." : "Saved."));
     }
 
     [HttpPut("{id:int}/approve")]
@@ -234,8 +241,10 @@ public class AdminExpenseController : AdminBaseController
     {
         var e = await _db.ExpenseEntries.FindAsync(id);
         if (e == null || e.IsDeleted) return NotFound(ApiResponse<object>.Fail("NOT_FOUND", "Expense not found."));
-        if (e.IsApproved) return BadRequest(ApiResponse<object>.Fail("ALREADY_APPROVED", "Expense is already approved."));
-        e.IsApproved = true; e.ApprovedBy = AdminName; e.UpdatedAt = DateTime.UtcNow;
+        var me = await ExpenseApproval.ForAsync(_db, AdminId, AdminName);
+        if (ExpenseApproval.Check(e, me) is { } no)   // only another partner — never the one who added it
+            return StatusCode(no.Code == "ALREADY_APPROVED" ? 400 : 403, ApiResponse<object>.Fail(no.Code, no.Message));
+        ExpenseApproval.Approve(e, me);
         await _db.SaveChangesAsync();
         return Ok(ApiResponse<object>.Ok(new { e.Id, e.IsApproved, e.ApprovedBy }));
     }
