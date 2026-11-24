@@ -119,6 +119,7 @@ builder.Services.AddHttpClient<IPaymentService, PaymentService>(client =>
 var app = builder.Build();
 
 // ── Middleware Pipeline ───────────────────────────────
+app.UseMiddleware<WahSpices.API.Security.ProxyClientIpMiddleware>();   // real visitor IP behind the website's /api proxy (shared secret)
 app.UseHttpSecurity();                      // security headers, method/body limits, HSTS+HTTPS (prod), abuse guard
 app.UseMiddleware<ExceptionMiddleware>();   // catches all exceptions
 
