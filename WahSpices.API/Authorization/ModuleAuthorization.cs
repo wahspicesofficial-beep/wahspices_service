@@ -105,7 +105,7 @@ public static class AdminPermissions
     {
         if (http.Items.TryGetValue(ItemKey, out var cached)) return cached as AdminAccess;
         AdminAccess? access = null;
-        if (int.TryParse(http.User.FindFirst("admin_id")?.Value, out var id) && http.User.FindFirst("temp_2fa") == null)
+        if (int.TryParse(http.User.FindFirst("admin_id")?.Value, out var id) && http.User.FindFirst("temp_2fa") == null && http.User.FindFirst("temp_2fa_setup") == null && http.User.FindFirst("temp_pwchange") == null)
         {
             var db = http.RequestServices.GetRequiredService<AppDbContext>();
             await DefaultRoles.EnsureUpgradedAsync(db);

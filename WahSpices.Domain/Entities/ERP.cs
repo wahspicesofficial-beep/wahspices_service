@@ -662,6 +662,9 @@ public class AdminUser : BaseEntity
     public string? Permissions { get; set; }                  // user-level overrides JSON
     public bool IsActive { get; set; } = true;
     public bool IsTwoFactorEnabled { get; set; } = false;
+    /// <summary>Set when an admin creates the account or resets its password: the next sign-in must choose a new
+    /// password before any session is issued. Cleared once the user sets their own password.</summary>
+    public bool MustChangePassword { get; set; } = false;
     public string? TotpSecret { get; set; }
     public string? TotpBackupCodes { get; set; }
     public string? RefreshToken { get; set; }

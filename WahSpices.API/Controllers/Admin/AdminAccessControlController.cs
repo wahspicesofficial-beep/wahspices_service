@@ -9,6 +9,7 @@ using WahSpices.Application.DTOs.Admin;
 using WahSpices.Application.Services;
 using WahSpices.Domain.Entities;
 using WahSpices.Infrastructure.Data;
+using WahSpices.Infrastructure.Email;
 
 namespace WahSpices.API.Controllers.Admin;
 
@@ -17,8 +18,18 @@ namespace WahSpices.API.Controllers.Admin;
 public class AdminAccessControlController : AdminBaseController
 {
     private readonly AppDbContext _db;
+    private readonly IEmailComposer _email;
+    private readonly ILogger<AdminAccessControlController> _logger;
 
-    public AdminAccessControlController(AppDbContext db) => _db = db;
+    public AdminAccessControlController(AppDbContext db, IEmailComposer email, ILogger<AdminAccessControlController> logger)
+    { _db = db; _email = email; _logger = logger; }
+
+    /// <summary>Emails sign-in details; never fails the request (the admin sees whether it was sent).</summary>
+    private async Task<bool> TrySendAsync(AdminUser user, string category, Func<EmailBrand, RenderedEmail> build)
+    {
+        try { await _email.SendNowAsync(user.Email, user.Name, category, build); return true; }
+        catch (Exception ex) { _logger.LogError(ex, "Could not email {Category} to admin user {Id}", category, user.Id); return false; }
+    }
 
     // ──────────────────────────────────────────────────────────────────────
     //  USERS
@@ -64,14 +75,21 @@ public class AdminAccessControlController : AdminBaseController
             Role         = role.Name,
             AdminRoleId  = role.Id,
             PasswordHash = BCrypt.Net.BCrypt.HashPassword(request.Password),
-            IsActive     = true
+            IsActive     = true,
+            MustChangePassword = true,   // the emailed password is temporary: first sign-in must replace it
         };
         _db.AdminUsers.Add(user);
         await _db.SaveChangesAsync();
 
         user.AdminRole = role;
         await WriteAuditLog("AccessControl", $"Created admin user {user.Email} with role {role.Name}");
-        return StatusCode(201, ApiResponse<object>.Ok(ToDto(user), "User created."));
+
+        var invitedBy = User.FindFirst("admin_name")?.Value ?? "Your administrator";
+        var emailed = await TrySendAsync(user, "admin-invite",
+            b => EmailTemplates.AdminInvite(b, user.Name, user.Email, request.Password, role.Name, invitedBy));
+        return StatusCode(201, ApiResponse<object>.Ok(new { user = ToDto(user), emailSent = emailed },
+            emailed ? $"User created. Sign-in details emailed to {user.Email}."
+                    : $"User created, but the email to {user.Email} could not be sent — share the sign-in details yourself."));
     }
 
     [HttpPatch("users/{id:int}")]
@@ -159,18 +177,23 @@ public class AdminAccessControlController : AdminBaseController
         var tempPwd = new string(random.Select(b => chars[b % chars.Length]).ToArray());
 
         user.PasswordHash = BCrypt.Net.BCrypt.HashPassword(tempPwd);
+        user.MustChangePassword = true;   // temporary password: a new one is required at the next sign-in
         user.UpdatedAt    = DateTime.UtcNow;
         await WahSpices.API.Security.AdminSessionRevoker.RevokeAllAsync(_db, user, exceptSessionId: null);   // every session ends
         await _db.SaveChangesAsync();
 
         await WriteAuditLog("AccessControl", $"Password reset for user {user.Email}");
-        return Ok(ApiResponse<object>.Ok(new { TempPassword = tempPwd },
-            "Password has been reset. Share this temp password securely."));
+        var resetBy = User.FindFirst("admin_name")?.Value ?? "Your administrator";
+        var emailed = await TrySendAsync(user, "admin-password-reset",
+            b => EmailTemplates.AdminPasswordReset(b, user.Name, user.Email, tempPwd, resetBy));
+        return Ok(ApiResponse<object>.Ok(new { TempPassword = tempPwd, EmailSent = emailed },
+            emailed ? $"Password reset. The temporary password was emailed to {user.Email}; they must change it at sign-in."
+                    : "Password reset, but the email could not be sent — share this temporary password securely."));
     }
 
     /// Admin accounts guard the whole business: the customer policy (letters + digits, no common or
     /// personal passwords) plus a 10-character minimum.
-    private static string? AdminPasswordError(string? password, string? email, string? name)
+    internal static string? AdminPasswordError(string? password, string? email, string? name)
     {
         if (string.IsNullOrEmpty(password) || password.Length < 10)
             return "Admin passwords must be at least 10 characters.";
@@ -196,6 +219,7 @@ public class AdminAccessControlController : AdminBaseController
             return BadRequest(ApiResponse<object>.Fail("WEAK_PASSWORD", "The new password must be different from the current one.", "newPassword"));
 
         user.PasswordHash = BCrypt.Net.BCrypt.HashPassword(request.NewPassword);
+        user.MustChangePassword = false;
         user.UpdatedAt    = DateTime.UtcNow;
         // other devices are signed out; this session stays
         int? current = int.TryParse(User.FindFirst("wsid")?.Value, out var sid) ? sid : null;
@@ -379,7 +403,8 @@ public class AdminAccessControlController : AdminBaseController
         u.IsActive, u.IsTwoFactorEnabled, u.IsLocked,
         u.LastLoginAt, u.CreatedAt,
         AdminPermissions.Parse(u.Permissions),      // the user's own overrides only
-        AdminPermissions.Effective(u));            // every module: role + overrides (Super Admin → all true)
+        AdminPermissions.Effective(u),             // every module: role + overrides (Super Admin → all true)
+        u.MustChangePassword);
 
     private Task<bool> OtherActiveSuperAdminExists(int exceptId) =>
         _db.AdminUsers.AnyAsync(a => a.Id != exceptId && !a.IsDeleted && a.IsActive &&

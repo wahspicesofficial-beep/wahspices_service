@@ -53,6 +53,44 @@ public static class EmailTemplates
         return Render(b, $"Reset your {b.Name} password", $"This secure link expires in {minutes} minutes.", body, ReasonAccount);
     }
 
+    /// <summary>New admin-panel user: their sign-in email + the temporary password chosen by the Super Admin.</summary>
+    public static RenderedEmail AdminInvite(EmailBrand b, string name, string email, string tempPassword, string role, string invitedBy)
+    {
+        var login = b.Link("/admin/login");
+        var body = Hero("&#128272;", "Admin panel access", $"Welcome to the {H(b.Name)} team!",
+                       $"Hi {H(First(name))}, {H(invitedBy)} has created an account for you on the {H(b.Name)} admin panel with the role <strong>{H(role)}</strong>.", Tone.Info) +
+                   SectionTitle("Your sign-in details") +
+                   KeyValues(new[]
+                   {
+                       ("Login page", A(login, login)),
+                       ("Username (email)", $"<strong>{H(email)}</strong>"),
+                       ("Temporary password", $"<strong style=\"font-family:monospace;font-size:15px;letter-spacing:1px\">{H(tempPassword)}</strong>"),
+                       ("Role", H(role)),
+                   }) +
+                   Buttons(("Sign in to the admin panel", login, true)) +
+                   Callout("<strong>You must change this password the first time you sign in.</strong> The temporary password stops working as soon as you set your own.", Tone.Warning) +
+                   Small("For your security, delete this email after you have set your new password and never share your password with anyone — our team will never ask for it.");
+        return Render(b, $"Your {b.Name} admin account is ready", $"Sign in as {email} and set your own password.", body, ReasonAccount, showHelp: false);
+    }
+
+    /// <summary>Admin-panel password reset by a Super Admin: new temporary password, change required at next sign-in.</summary>
+    public static RenderedEmail AdminPasswordReset(EmailBrand b, string name, string email, string tempPassword, string resetBy)
+    {
+        var login = b.Link("/admin/login");
+        var body = Hero("&#128273;", "Admin panel", "Your password was reset",
+                       $"Hi {H(First(name))}, {H(resetBy)} has reset the password of your {H(b.Name)} admin account. You have been signed out everywhere.", Tone.Warning) +
+                   KeyValues(new[]
+                   {
+                       ("Login page", A(login, login)),
+                       ("Username (email)", $"<strong>{H(email)}</strong>"),
+                       ("Temporary password", $"<strong style=\"font-family:monospace;font-size:15px;letter-spacing:1px\">{H(tempPassword)}</strong>"),
+                   }) +
+                   Buttons(("Sign in to the admin panel", login, true)) +
+                   Callout("<strong>You must choose a new password when you sign in.</strong>", Tone.Warning) +
+                   Small("Didn't expect this? Contact your administrator right away.");
+        return Render(b, $"Your {b.Name} admin password was reset", "Sign in with the temporary password and set a new one.", body, ReasonAccount, showHelp: false);
+    }
+
     public static RenderedEmail AccountExists(EmailBrand b, string name)
     {
         var body = Hero("&#128075;", "You already have an account", "Looks like you're already with us",

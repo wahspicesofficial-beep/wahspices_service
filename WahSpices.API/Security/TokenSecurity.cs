@@ -97,8 +97,8 @@ public static class WahTokenEvents
         var p = ctx.Principal;
         if (p == null) { ctx.Fail("No principal"); return; }
 
-        // Login-step tokens (2FA / forced 2FA setup) are only accepted by their own endpoints, never as bearer tokens.
-        if (p.FindFirst("temp_2fa") != null || p.FindFirst("temp_2fa_setup") != null)
+        // Login-step tokens (2FA / forced 2FA setup / first password) are only accepted by their own endpoints, never as bearer tokens.
+        if (p.FindFirst("temp_2fa") != null || p.FindFirst("temp_2fa_setup") != null || p.FindFirst("temp_pwchange") != null)
         {
             Fail(ctx, "Token missing or expired.");
             return;

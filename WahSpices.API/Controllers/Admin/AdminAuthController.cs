@@ -108,6 +108,9 @@ public class AdminAuthController : ControllerBase
             }, "2FA required."));
         }
 
+        // Invited / reset account: choose a new password before any session exists.
+        if (admin.MustChangePassword) return PasswordChangeStep(admin);
+
         // 2FA enforced by policy but not set up yet → walk the admin through setup before any session exists.
         if (settings.Enforce2FA)
         {
@@ -171,6 +174,66 @@ public class AdminAuthController : ControllerBase
         if (!ConsumeTempToken(principal))
             return Unauthorized(ApiResponse<object>.Fail("INVALID_TOKEN", "Your sign-in step expired. Please sign in again."));
 
+        if (admin.MustChangePassword)
+        {
+            await _db.SaveChangesAsync();   // keep a consumed backup code consumed
+            return PasswordChangeStep(admin);
+        }
+        return await IssueTokenAndSession(admin);
+    }
+
+    // ── Forced password change at first sign-in (invited or reset accounts) ──
+    private IActionResult PasswordChangeStep(AdminUser admin) =>
+        Ok(ApiResponse<object>.Ok(new
+        {
+            RequiresPasswordChange = true,
+            ChangeToken            = GenerateTempToken(admin, "temp_pwchange", 15)
+        }, "Please choose a new password to finish signing in."));
+
+    [AllowAnonymous]
+    [HttpPost("first-password")]
+    [RequireHumanProof("admin-auth")]
+    public async Task<IActionResult> SetFirstPassword([FromBody] FirstPasswordRequest request)
+    {
+        var principal = ValidateTempToken(request.ChangeToken, "temp_pwchange");
+        if (principal == null)
+            return Unauthorized(ApiResponse<object>.Fail("INVALID_TOKEN", "Your sign-in step expired. Please sign in again."));
+
+        var adminId = int.Parse(principal.FindFirst("admin_id")?.Value ?? "0");
+        var admin = await _db.AdminUsers.Include(a => a.AdminRole).FirstOrDefaultAsync(a => a.Id == adminId && !a.IsDeleted);
+        if (admin == null || !admin.IsActive)
+            return Unauthorized(ApiResponse<object>.Fail("NOT_FOUND", "User not found."));
+        if (admin.IsLocked && admin.LockedUntil > DateTime.UtcNow)
+            return LockedResult(admin.LockedUntil!.Value);
+        var settings = await _security.GetAsync(_db);
+        if (!AdminSecuritySettingsService.IpAllowed(settings, HttpContext))
+            return StatusCode(403, ApiResponse<object>.Fail("IP_NOT_ALLOWED", "Admin sign-in isn't allowed from this network."));
+        if (!admin.MustChangePassword)
+            return BadRequest(ApiResponse<object>.Fail("NOT_REQUIRED", "Your password is already set. Please sign in again."));
+
+        var newPassword = request.NewPassword ?? "";
+        var pwError = AdminAccessControlController.AdminPasswordError(newPassword, admin.Email, admin.Name);
+        if (pwError != null)
+            return BadRequest(ApiResponse<object>.Fail("WEAK_PASSWORD", pwError, "newPassword"));
+        if (BCrypt.Net.BCrypt.Verify(newPassword, admin.PasswordHash))
+            return BadRequest(ApiResponse<object>.Fail("SAME_PASSWORD", "Choose a new password — it can't be the temporary one.", "newPassword"));
+
+        if (!ConsumeTempToken(principal))
+            return Unauthorized(ApiResponse<object>.Fail("INVALID_TOKEN", "Your sign-in step expired. Please sign in again."));
+
+        admin.PasswordHash       = BCrypt.Net.BCrypt.HashPassword(newPassword);
+        admin.MustChangePassword = false;
+        admin.UpdatedAt          = DateTime.UtcNow;
+        await _db.SaveChangesAsync();
+        await WriteAuditLog(admin.Id, admin.Name, "Set own password at first sign-in");
+
+        // Password done — now the 2FA policy, exactly as a normal sign-in would continue.
+        if (!admin.IsTwoFactorEnabled && settings.Enforce2FA)
+            return Ok(ApiResponse<object>.Ok(new
+            {
+                Requires2FASetup = true,
+                SetupToken       = GenerateTempToken(admin, "temp_2fa_setup", 10)
+            }, "Password updated. Two-factor authentication is required — set it up to continue."));
         return await IssueTokenAndSession(admin);
     }
 
@@ -596,7 +659,7 @@ public class AdminAuthController : ControllerBase
 
     internal static bool IsSuperAdminRole(string? roleName) => PolicyRole(roleName) == "Admin";
 
-    /// <summary>Short-lived login-step token ("temp_2fa" = enter code, "temp_2fa_setup" = forced setup). Rejected as a bearer token.</summary>
+    /// <summary>Short-lived login-step token ("temp_2fa" = enter code, "temp_2fa_setup" = forced setup, "temp_pwchange" = first password). Rejected as a bearer token.</summary>
     private string GenerateTempToken(AdminUser admin, string purpose, int minutes)
     {
         var key   = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:SecretKey"]!));
@@ -670,4 +733,5 @@ public class AdminAuthController : ControllerBase
 public record VerifyLoginRequest(string? TempToken, string? Code);
 public record SetupLoginRequest(string? SetupToken);
 public record EnableLoginRequest(string? SetupToken, string? Code);
+public record FirstPasswordRequest(string? ChangeToken, string? NewPassword);
 public record AdminRefreshRequest(string? RefreshToken);

@@ -246,6 +246,9 @@ namespace WahSpices.Infrastructure.Migrations
                     b.Property<DateTime?>("LockedUntil")
                         .HasColumnType("datetime2");
 
+                    b.Property<bool>("MustChangePassword")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(128)

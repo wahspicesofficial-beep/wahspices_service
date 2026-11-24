@@ -272,7 +272,8 @@ public record AdminUserDetailDto(
     DateTime? LastLoginAt,
     DateTime CreatedAt,
     Dictionary<string, bool>? Permissions,
-    Dictionary<string, bool>? EffectivePermissions  // role perms merged with user overrides
+    Dictionary<string, bool>? EffectivePermissions,  // role perms merged with user overrides
+    bool MustChangePassword = false                    // invited / reset — first sign-in not completed yet
 );
 
 public record UpdatePermissionsRequest(Dictionary<string, bool> Permissions);
