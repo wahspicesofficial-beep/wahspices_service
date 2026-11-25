@@ -15,8 +15,10 @@ public static class ExpenseApproval
     public static async Task<Approver> ForAsync(AppDbContext db, string adminIdClaim, string adminName)
     {
         var id = int.TryParse(adminIdClaim, out var v) ? v : 0;
-        var partner = id == 0 ? null : await db.Partners.AsNoTracking()
-            .FirstOrDefaultAsync(p => p.AdminUserId == id && p.IsActive && !p.IsDeleted);
+        // The Super Admin runs the panel but never approves partners' expenses, even if a partner were linked.
+        var admin = id == 0 ? null : await db.AdminUsers.AsNoTracking().Include(a => a.AdminRole).FirstOrDefaultAsync(a => a.Id == id && !a.IsDeleted);
+        var partner = admin == null || WahSpices.API.Authorization.AdminPermissions.IsSuperAdmin(admin) ? null
+            : await db.Partners.AsNoTracking().FirstOrDefaultAsync(p => p.AdminUserId == id && p.IsActive && !p.IsDeleted);
         return new Approver(id, adminName, partner);
     }
 

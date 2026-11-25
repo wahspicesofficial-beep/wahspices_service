@@ -145,8 +145,11 @@ public class AdminCompanyController : AdminBaseController
     {
         var linked = await _db.Partners.AsNoTracking().Where(p => !p.IsDeleted && p.AdminUserId != null)
             .ToDictionaryAsync(p => p.AdminUserId!.Value, p => new { p.Id, p.Name });
-        var users = await _db.AdminUsers.AsNoTracking().Where(a => !a.IsDeleted && a.IsActive)
-            .OrderBy(a => a.Name).Select(a => new { a.Id, a.Name, a.Email }).ToListAsync();
+        // Super Admin logins never approve expenses, so they can't be linked to a partner.
+        var users = (await _db.AdminUsers.AsNoTracking().Include(a => a.AdminRole).Where(a => !a.IsDeleted && a.IsActive)
+                .OrderBy(a => a.Name).ToListAsync())
+            .Where(a => !WahSpices.API.Authorization.AdminPermissions.IsSuperAdmin(a))
+            .Select(a => new { a.Id, a.Name, a.Email }).ToList();
         return Ok(ApiResponse<object>.Ok(users.Select(u => new
         {
             u.Id, u.Name, u.Email,
@@ -159,7 +162,9 @@ public class AdminCompanyController : AdminBaseController
     private async Task<string?> ValidateLoginAsync(int? adminUserId, int? partnerId)
     {
         if (adminUserId == null) return null;
-        if (!await _db.AdminUsers.AnyAsync(a => a.Id == adminUserId && !a.IsDeleted)) return "That admin login no longer exists.";
+        var login = await _db.AdminUsers.AsNoTracking().Include(a => a.AdminRole).FirstOrDefaultAsync(a => a.Id == adminUserId && !a.IsDeleted);
+        if (login == null) return "That admin login no longer exists.";
+        if (WahSpices.API.Authorization.AdminPermissions.IsSuperAdmin(login)) return "The Super Admin login can't be linked to a partner — the Super Admin doesn't approve expenses.";
         var other = await _db.Partners.AsNoTracking()
             .FirstOrDefaultAsync(p => p.AdminUserId == adminUserId && !p.IsDeleted && p.Id != (partnerId ?? 0));
         return other == null ? null : $"That admin login is already linked to partner {other.Name}.";
