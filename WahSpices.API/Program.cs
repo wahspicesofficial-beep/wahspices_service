@@ -185,6 +185,7 @@ using (var scope = app.Services.CreateScope())
     var logger = scope.ServiceProvider.GetRequiredService<ILoggerFactory>().CreateLogger("DbInitializer");
     WahSpices.Infrastructure.Data.DbInitializer.EnsureTables(db, logger);
     WahSpices.Infrastructure.Data.MasterDataSeeder.Seed(db, logger);
+    WahSpices.Infrastructure.Data.HsnSeeder.Seed(db, logger);   // spice & masala HSN codes, first run only
     WahSpices.Infrastructure.Security.EncryptedFieldsBackfill.Run(db, logger);   // encrypt legacy plaintext / re-key
 }
 

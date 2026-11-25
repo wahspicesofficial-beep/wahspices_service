@@ -53,6 +53,9 @@ public class AdminLookupsController : AdminBaseController
         var now = DateTime.UtcNow;
         // Indian financial year (Apr–Mar)
         var fyStart = now.Month >= 4 ? now.Year : now.Year - 1;
+        // HSN master (Admin → GST & Tax): forms pick a code and the GST rate fills in from it
+        var hsnCodes = (await WahSpices.Infrastructure.Services.HsnRates.ActiveAsync(_db))
+            .OrderBy(h => h.Code).Select(h => new { h.Code, h.Description, h.GstRate }).ToList();
         var financialYears = Enumerable.Range(0, 5).Select(i => $"{fyStart - i}-{(fyStart - i + 1) % 100:D2}").ToList();
 
         return Ok(ApiResponse<object>.Ok(new
@@ -62,6 +65,7 @@ public class AdminLookupsController : AdminBaseController
             types = MasterDataSeeder.Defaults.Keys.Union(lists.Keys).OrderBy(k => k).ToList(),
             years = Enumerable.Range(now.Year - 4, 6).Select(y => y).OrderByDescending(y => y).ToList(),
             financialYears,
+            hsnCodes,
             currentYear = now.Year,
             currentMonth = now.Month,
         }));

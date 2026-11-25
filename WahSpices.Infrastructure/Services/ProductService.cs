@@ -385,7 +385,7 @@ public class ProductService : IProductService, IAdminProductService
             Badge = request.Badge,
             BgColor = request.BgColor,
             HsnCode = request.HsnCode,
-            GstRate = request.GstRate,
+            GstRate = await HsnRates.RateForAsync(_db, request.HsnCode) ?? request.GstRate,   // HSN master wins
             Featured = request.Featured,
             IsDraft = request.IsDraft,
             ImageUrl = imageUrl ?? request.ImageUrl,
@@ -425,7 +425,7 @@ public class ProductService : IProductService, IAdminProductService
         p.Badge = request.Badge;
         p.BgColor = request.BgColor;
         p.HsnCode = request.HsnCode;
-        p.GstRate = request.GstRate;
+        p.GstRate = await HsnRates.RateForAsync(_db, request.HsnCode) ?? request.GstRate;   // HSN master wins
         p.Featured = request.Featured;
         p.IsDraft = request.IsDraft;
         p.SubCategorySlug = string.IsNullOrWhiteSpace(request.SubCategory) ? null : request.SubCategory.ToLower();

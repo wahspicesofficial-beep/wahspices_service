@@ -61,7 +61,8 @@ public class AdminGSTController : AdminBaseController
         };
         _db.HsnCodes.Add(h);
         await _db.SaveChangesAsync();
-        return StatusCode(201, ApiResponse<object>.Ok(MapHsn(h), "HSN code added."));
+        var synced = await WahSpices.Infrastructure.Services.HsnRates.ApplyToProductsAsync(_db, AdminName);
+        return StatusCode(201, ApiResponse<object>.Ok(MapHsn(h), $"HSN code added.{SyncNote(synced)}"));
     }
 
     [HttpPut("hsn/{id:int}")]
@@ -79,7 +80,8 @@ public class AdminGSTController : AdminBaseController
         h.UpdatedAt   = DateTime.UtcNow;
         h.UpdatedBy   = AdminName;
         await _db.SaveChangesAsync();
-        return Ok(ApiResponse<object>.Ok(MapHsn(h), "HSN code updated."));
+        var synced = await WahSpices.Infrastructure.Services.HsnRates.ApplyToProductsAsync(_db, AdminName);
+        return Ok(ApiResponse<object>.Ok(MapHsn(h), $"HSN code updated.{SyncNote(synced)}"));
     }
 
     [HttpDelete("hsn/{id:int}")]
@@ -89,8 +91,13 @@ public class AdminGSTController : AdminBaseController
         if (h == null || h.IsDeleted) return NotFound(ApiResponse<object>.Fail("NOT_FOUND", "HSN not found."));
         h.IsDeleted = true; h.UpdatedAt = DateTime.UtcNow; h.UpdatedBy = AdminName;
         await _db.SaveChangesAsync();
-        return Ok(ApiResponse<bool>.Ok(true));
+        // products fall back to a broader heading still in the master (e.g. 0910 after 091091 is deleted); otherwise they keep their rate
+        var synced = await WahSpices.Infrastructure.Services.HsnRates.ApplyToProductsAsync(_db, AdminName);
+        return Ok(ApiResponse<bool>.Ok(true, $"HSN code deleted.{SyncNote(synced)}"));
     }
+
+    private static string SyncNote(int products) =>
+        products == 0 ? "" : $" GST rate updated on {products} product{(products == 1 ? "" : "s")}.";
 
     private static string? ValidateHsn(HsnRequest req, bool requireCode)
     {

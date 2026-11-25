@@ -238,10 +238,13 @@ public class InvoiceService : IInvoiceService
         };
 
         decimal subtotal = 0, discountTotal = 0, cgstTotal = 0, sgstTotal = 0, igstTotal = 0;
+        var hsnMaster = await HsnRates.ActiveAsync(_db);
 
         foreach (var item in request.Items!)
         {
-            var halfGst = item.GstRate / 2;
+            // GST rate: the HSN master's rate when the line's HSN is in it, otherwise the rate typed on the bill
+            var lineRate = HsnRates.Resolve(hsnMaster, item.HsnCode)?.GstRate ?? item.GstRate;
+            var halfGst = lineRate / 2;
             var discAmt = Math.Round(item.UnitPrice * item.Quantity * item.DiscountPercent / 100, 2);
             var taxable = Math.Round(item.UnitPrice * item.Quantity - discAmt, 2);
 
@@ -253,7 +256,7 @@ public class InvoiceService : IInvoiceService
             }
             else
             {
-                igst = Math.Round(taxable * item.GstRate / 100, 2);
+                igst = Math.Round(taxable * lineRate / 100, 2);
             }
 
             invoice.LineItems.Add(new InvoiceLineItem
@@ -269,10 +272,10 @@ public class InvoiceService : IInvoiceService
                 DiscountPercent = item.DiscountPercent,
                 DiscountAmount  = discAmt,
                 TaxableAmount   = taxable,
-                GstRate         = item.GstRate,
+                GstRate         = lineRate,
                 CgstRate        = gstType == GSTType.IntraState ? halfGst : 0,
                 SgstRate        = gstType == GSTType.IntraState ? halfGst : 0,
-                IgstRate        = gstType != GSTType.IntraState ? item.GstRate : 0,
+                IgstRate        = gstType != GSTType.IntraState ? lineRate : 0,
                 CgstAmount      = cgst,
                 SgstAmount      = sgst,
                 IgstAmount      = igst,
